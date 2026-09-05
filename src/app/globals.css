@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Southampton-summer palette: warm whites, sea-glass blues, soft navy ink.
+  Token names are kept generic ("luxury-*") so the components don't need to
+  change when the scheme is retuned.
+    luxury-dark      -> primary ground (warm white)
+    luxury-sand      -> primary text on ground (soft navy)
+    luxury-gold      -> accent (weathered chambray blue)
+    luxury-charcoal  -> alternating band (pale sea-glass)
+    luxury-ink       -> deepest navy for headings
+    luxury-mist      -> muted blue-grey for secondary text
+*/
+@theme {
+  --color-luxury-dark: #f7f5ef;
+  --color-luxury-sand: #27333d;
+  --color-luxury-gold: #4e7488;
+  --color-luxury-charcoal: #e7eef1;
+  --color-luxury-ink: #1b2730;
+  --color-luxury-mist: #8b9aa3;
+  --color-luxury-blue: #3f7f9e; /* brighter lighthouse blue — used for icons */
+
+  /* Shared page container width. */
+  --container-wide: 90rem; /* 1440px */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clear the fixed navigation when jumping to an anchor. */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-luxury-dark);
+  color: var(--color-luxury-sand);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* The house name and other Cormorant display type reads best a touch tighter
+   than the browser default and with old-style figures where available. */
+.font-serif {
+  font-feature-settings: "liga" 1, "onum" 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
