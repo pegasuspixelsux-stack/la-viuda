@@ -9,6 +9,7 @@ import { LivingSection } from "@/components/living-section";
 import { LocationSection } from "@/components/location-section";
 import { PropertyDetailsSection } from "@/components/property-details-section";
 import { ReserveSection } from "@/components/reserve-section";
+import { ResidenceSection } from "@/components/residence-section";
 import { SettingSection } from "@/components/setting-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
@@ -20,13 +21,14 @@ export default function Home() {
       <main>
         <Hero />
         <EstateSection />
+        <ResidenceSection />
+        <FacilitiesSection />
         <PropertyDetailsSection />
         <BedroomsSection />
         <LivingSection />
         <SettingSection />
         <ExperiencesSection />
         <GallerySection />
-        <FacilitiesSection />
         <LocationSection />
         <FaqSection />
         <ReserveSection />

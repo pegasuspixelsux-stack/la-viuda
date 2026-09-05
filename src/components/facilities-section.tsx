@@ -44,7 +44,7 @@ export function FacilitiesSection() {
   return (
     <section
       id="servicios"
-      className="border-t border-luxury-gold/15 bg-luxury-charcoal"
+      className="border-t border-luxury-gold/15 bg-luxury-dark"
     >
       <div className="mx-auto max-w-wide px-6 py-24 md:px-10 md:py-32">
         <Reveal className="max-w-2xl">

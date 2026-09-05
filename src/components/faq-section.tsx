@@ -46,7 +46,7 @@ export function FaqSection() {
   const baseId = useId();
 
   return (
-    <section id="faq" className="border-t border-luxury-gold/15 bg-luxury-charcoal">
+    <section id="faq" className="border-t border-luxury-gold/15 bg-luxury-dark">
       <div className="mx-auto max-w-wide px-6 py-24 md:px-10 md:py-32">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
@@ -73,7 +73,7 @@ export function FaqSection() {
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => setOpen(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold focus-visible:ring-offset-4 focus-visible:ring-offset-luxury-charcoal"
+                      className="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold focus-visible:ring-offset-4 focus-visible:ring-offset-luxury-dark"
                     >
                       <span className="font-serif text-lg font-light text-luxury-ink md:text-xl">
                         {faq.q}
