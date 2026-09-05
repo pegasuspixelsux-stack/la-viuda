@@ -79,7 +79,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="flex items-center gap-4 text-[clamp(3.6rem,13.2vw,10.2rem)] md:gap-6"
+              className="flex items-center gap-4 text-[clamp(3.4rem,12vw,8.5rem)] md:gap-6"
             >
               <Lighthouse
                 className="h-[0.46em] w-[0.46em] shrink-0 text-white"
@@ -92,7 +92,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="block text-[clamp(3.6rem,13.2vw,10.2rem)]"
+              className="block text-[clamp(3.4rem,12vw,8.5rem)]"
             >
               de la Viuda
             </motion.span>
