@@ -53,14 +53,17 @@ body {
   font-feature-settings: "liga" 1, "onum" 1;
 }
 
-/* Native date inputs otherwise ignore the Tailwind field padding and render
-   shorter than the text inputs next to them. */
+/* Native date inputs otherwise render shorter than the text inputs next to
+   them and float their text to the top. Flexbox reliably centres the value. */
 input[type="date"] {
+  display: flex;
+  align-items: center;
   min-height: 2.875rem;
-  line-height: 1.25rem;
 }
 input[type="date"]::-webkit-datetime-edit {
   padding: 0;
+  font-size: 0.875rem;
+  line-height: normal;
 }
 input[type="date"]::-webkit-date-and-time-value {
   margin: 0;
@@ -68,7 +71,7 @@ input[type="date"]::-webkit-date-and-time-value {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   margin-inline-start: auto;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
