@@ -6,23 +6,19 @@ import type { ChangeEvent, FormEvent } from "react";
 
 const INBOX = "reservas@lacasadelaviuda.uy";
 
-// One fixed height + one horizontal padding for every field so the date
-// inputs line up exactly with the text inputs, on mobile and desktop alike.
+// Every field — dates included — renders with this exact class so the
+// column stays perfectly aligned on mobile and desktop.
 const fieldClass =
-  "block h-11 w-full min-w-0 border border-luxury-gold/30 bg-luxury-dark px-4 text-sm font-light " +
-  "text-luxury-ink placeholder:text-luxury-mist focus-visible:border-luxury-gold " +
+  "block w-full min-w-0 border border-luxury-gold/30 bg-luxury-dark px-4 py-3.5 text-sm " +
+  "font-light text-luxury-ink placeholder:text-luxury-mist focus-visible:border-luxury-gold " +
   "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
 
 const labelClass =
   "mb-1.5 block text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88";
 
-type FormState = {
-  llegada: string;
-  salida: string;
-  nombre: string;
-  email: string;
-  telefono: string;
-};
+type FieldKey = "llegada" | "salida" | "nombre" | "email" | "telefono";
+
+type FormState = Record<FieldKey, string>;
 
 const EMPTY: FormState = {
   llegada: "",
@@ -32,22 +28,18 @@ const EMPTY: FormState = {
   telefono: "",
 };
 
-const TEXT_FIELDS: {
-  key: "nombre" | "email" | "telefono";
+const FIELDS: {
+  key: FieldKey;
   label: string;
   type: string;
-  autoComplete: string;
+  autoComplete?: string;
   required: boolean;
 }[] = [
-  { key: "nombre", label: "Nombre", type: "text", autoComplete: "name", required: true },
-  { key: "email", label: "Email", type: "email", autoComplete: "email", required: true },
-  {
-    key: "telefono",
-    label: "Teléfono (opcional)",
-    type: "tel",
-    autoComplete: "tel",
-    required: false,
-  },
+  { key: "llegada", label: "Fecha de llegada", type: "date", required: true },
+  { key: "salida", label: "Fecha de salida", type: "date", required: true },
+  { key: "nombre", label: "Nombre completo", type: "text", autoComplete: "name", required: true },
+  { key: "email", label: "Correo electrónico", type: "email", autoComplete: "email", required: true },
+  { key: "telefono", label: "Teléfono", type: "tel", autoComplete: "tel", required: false },
 ];
 
 export function BookingForm() {
@@ -57,7 +49,7 @@ export function BookingForm() {
   const [sent, setSent] = useState(false);
 
   const update =
-    (key: keyof FormState) => (event: ChangeEvent<HTMLInputElement>) => {
+    (key: FieldKey) => (event: ChangeEvent<HTMLInputElement>) => {
       setForm((current) => ({ ...current, [key]: event.target.value }));
     };
 
@@ -111,7 +103,7 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative border border-luxury-gold/25 bg-luxury-charcoal px-[10%] py-9 sm:px-12 sm:py-11 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
+      className="relative border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
     >
       <span className="absolute right-0 top-0 bg-luxury-gold px-4 py-1 text-[0.58rem] font-medium uppercase tracking-[0.2em] text-white">
         Reserva directa
@@ -124,17 +116,22 @@ export function BookingForm() {
         Consultá tu estadía
       </h3>
 
-      {/* Full width on mobile (stacked); two columns from sm up. */}
-      <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {(["llegada", "salida"] as const).map((key) => (
-          <div key={key} className="min-w-0">
+      <div className="mt-8 flex flex-col gap-4">
+        {FIELDS.map(({ key, label, type, autoComplete, required }) => (
+          <div key={key}>
             <label htmlFor={fieldId(key)} className={labelClass}>
-              {key === "llegada" ? "Llegada" : "Salida"}
+              {label}
+              {!required && (
+                <span className="ml-1 lowercase tracking-normal text-luxury-mist">
+                  (opcional)
+                </span>
+              )}
             </label>
             <input
               id={fieldId(key)}
-              type="date"
-              required
+              type={type}
+              required={required}
+              autoComplete={autoComplete}
               value={form[key]}
               onChange={update(key)}
               className={fieldClass}
@@ -142,23 +139,6 @@ export function BookingForm() {
           </div>
         ))}
       </div>
-
-      {TEXT_FIELDS.map(({ key, label, type, autoComplete, required }) => (
-        <div key={key} className="mt-4">
-          <label htmlFor={fieldId(key)} className={labelClass}>
-            {label}
-          </label>
-          <input
-            id={fieldId(key)}
-            type={type}
-            required={required}
-            autoComplete={autoComplete}
-            value={form[key]}
-            onChange={update(key)}
-            className={fieldClass}
-          />
-        </div>
-      ))}
 
       <button
         type="submit"

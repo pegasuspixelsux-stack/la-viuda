@@ -59,6 +59,8 @@ body {
 input[type="date"] {
   display: flex;
   align-items: center;
+  /* Matches the rendered height of a text input at text-sm + py-3.5. */
+  min-height: 3.125rem;
 }
 input[type="date"]::-webkit-datetime-edit {
   padding: 0;
