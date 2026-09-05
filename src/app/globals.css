@@ -53,12 +53,12 @@ body {
   font-feature-settings: "liga" 1, "onum" 1;
 }
 
-/* Native date inputs otherwise render shorter than the text inputs next to
-   them and float their text to the top. Flexbox reliably centres the value. */
+/* Native date inputs otherwise float their text to the top of the box and
+   size their own controls. Flexbox centres the value; the field's own
+   h-11 / px-4 utilities then make the box identical to the text inputs. */
 input[type="date"] {
   display: flex;
   align-items: center;
-  min-height: 2.875rem;
 }
 input[type="date"]::-webkit-datetime-edit {
   padding: 0;

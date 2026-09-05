@@ -6,10 +6,12 @@ import type { ChangeEvent, FormEvent } from "react";
 
 const INBOX = "reservas@lacasadelaviuda.uy";
 
+// One fixed height + one horizontal padding for every field so the date
+// inputs line up exactly with the text inputs, on mobile and desktop alike.
 const fieldClass =
-  "w-full border border-luxury-gold/30 bg-luxury-dark px-4 py-3 text-sm font-light text-luxury-ink " +
-  "placeholder:text-luxury-mist focus-visible:border-luxury-gold focus-visible:outline-none " +
-  "focus-visible:ring-1 focus-visible:ring-luxury-gold";
+  "block h-11 w-full min-w-0 border border-luxury-gold/30 bg-luxury-dark px-4 text-sm font-light " +
+  "text-luxury-ink placeholder:text-luxury-mist focus-visible:border-luxury-gold " +
+  "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
 
 const labelClass =
   "mb-1.5 block text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88";
@@ -134,7 +136,7 @@ export function BookingForm() {
               required
               value={form[key]}
               onChange={update(key)}
-              className={`${fieldClass} min-w-0`}
+              className={fieldClass}
             />
           </div>
         ))}
@@ -159,7 +161,7 @@ export function BookingForm() {
 
       <button
         type="submit"
-        className="group mt-7 flex w-full items-center justify-center gap-2 bg-luxury-gold px-7 py-4 text-[0.62rem] font-medium uppercase tracking-[0.2em] text-white transition-colors duration-500 hover:bg-luxury-ink"
+        className="group mt-6 flex w-full items-center justify-center gap-2 bg-luxury-gold px-6 py-4 text-[0.62rem] font-medium uppercase tracking-[0.2em] text-white transition-colors duration-500 hover:bg-luxury-ink"
       >
         Enviar consulta
         <ArrowRight
