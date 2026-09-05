@@ -1,3 +1,4 @@
+import { AvailabilitySection } from "@/components/availability-section";
 import { BedroomsSection } from "@/components/bedrooms-section";
 import { EstateSection } from "@/components/estate-section";
 import { ExperiencesSection } from "@/components/experiences-section";
@@ -31,6 +32,7 @@ export default function Home() {
         <GallerySection />
         <LocationSection />
         <FaqSection />
+        <AvailabilitySection />
         <ReserveSection />
       </main>
       <SiteFooter />

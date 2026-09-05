@@ -12,7 +12,7 @@ export function ReserveSection() {
   return (
     <section
       id="reservar"
-      className="border-y border-luxury-gold/15 bg-luxury-charcoal"
+      className="border-y border-luxury-gold/15 bg-luxury-dark"
     >
       <div className="mx-auto grid max-w-wide gap-14 px-6 py-24 md:px-10 md:py-36 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
         <Reveal className="max-w-xl">
