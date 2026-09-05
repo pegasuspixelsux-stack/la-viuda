@@ -111,7 +111,7 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
+      className="relative border border-luxury-gold/25 bg-luxury-charcoal px-[10%] py-9 sm:px-12 sm:py-11 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
     >
       <span className="absolute right-0 top-0 bg-luxury-gold px-4 py-1 text-[0.58rem] font-medium uppercase tracking-[0.2em] text-white">
         Reserva directa
@@ -124,6 +124,7 @@ export function BookingForm() {
         Consultá tu estadía
       </h3>
 
+      {/* Full width on mobile (stacked); two columns from sm up. */}
       <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {(["llegada", "salida"] as const).map((key) => (
           <div key={key} className="min-w-0">

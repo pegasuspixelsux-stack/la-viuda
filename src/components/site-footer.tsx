@@ -12,7 +12,7 @@ export function SiteFooter() {
         <span className="uppercase">
           Ruta 9, km 295,7 — Punta del Diablo, Rocha
         </span>
-        <div className="flex flex-col gap-1 md:items-end">
+        <div className="flex flex-col items-center gap-1 text-center md:items-end md:text-right">
           <span>© {year} La Casa de la Viuda. Reservas directas.</span>
           <Link
             href="/login"
