@@ -122,9 +122,9 @@ export function BookingForm() {
         Consultá tu estadía
       </h3>
 
-      <div className="mt-7 grid grid-cols-2 gap-4">
+      <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {(["llegada", "salida"] as const).map((key) => (
-          <div key={key}>
+          <div key={key} className="min-w-0">
             <label htmlFor={fieldId(key)} className={labelClass}>
               {key === "llegada" ? "Llegada" : "Salida"}
             </label>
@@ -134,7 +134,7 @@ export function BookingForm() {
               required
               value={form[key]}
               onChange={update(key)}
-              className={fieldClass}
+              className={`${fieldClass} min-w-0`}
             />
           </div>
         ))}
