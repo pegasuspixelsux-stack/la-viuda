@@ -6,12 +6,13 @@ import type { ChangeEvent, FormEvent } from "react";
 
 const INBOX = "reservas@lacasadelaviuda.uy";
 
-// Every field — dates included — renders with this exact class so the
-// column stays perfectly aligned on mobile and desktop.
+// Every field renders with this exact class so the column stays perfectly
+// aligned — same width, padding, border and focus ring everywhere.
 const fieldClass =
-  "block w-full min-w-0 border border-luxury-gold/30 bg-luxury-dark px-4 py-3.5 text-sm " +
-  "font-light text-luxury-ink placeholder:text-luxury-mist focus-visible:border-luxury-gold " +
-  "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
+  "block h-[3.125rem] w-full min-w-0 appearance-none border border-luxury-gold/30 bg-luxury-dark " +
+  "px-4 text-sm font-light text-luxury-ink placeholder:text-luxury-mist [color-scheme:light] " +
+  "focus-visible:border-luxury-gold focus-visible:outline-none focus-visible:ring-1 " +
+  "focus-visible:ring-luxury-gold";
 
 const labelClass =
   "mb-1.5 block text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88";
@@ -28,19 +29,56 @@ const EMPTY: FormState = {
   telefono: "",
 };
 
-const FIELDS: {
-  key: FieldKey;
+const TEXT_FIELDS: {
+  key: Exclude<FieldKey, "llegada" | "salida">;
   label: string;
   type: string;
-  autoComplete?: string;
+  autoComplete: string;
   required: boolean;
 }[] = [
-  { key: "llegada", label: "Fecha de llegada", type: "date", required: true },
-  { key: "salida", label: "Fecha de salida", type: "date", required: true },
   { key: "nombre", label: "Nombre completo", type: "text", autoComplete: "name", required: true },
   { key: "email", label: "Correo electrónico", type: "email", autoComplete: "email", required: true },
   { key: "telefono", label: "Teléfono", type: "tel", autoComplete: "tel", required: false },
 ];
+
+// Date field that looks exactly like the text inputs when empty (styled
+// placeholder, no native "mm/dd/yyyy"), and only shows the native date UI
+// once it is focused or filled.
+function DateField({
+  id,
+  label,
+  value,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}) {
+  const [asDate, setAsDate] = useState(false);
+  const showNative = asDate || value !== "";
+
+  return (
+    <div>
+      <label htmlFor={id} className={labelClass}>
+        {label}
+      </label>
+      <input
+        id={id}
+        type={showNative ? "date" : "text"}
+        required
+        placeholder="dd / mm / aaaa"
+        value={value}
+        onChange={onChange}
+        onFocus={() => setAsDate(true)}
+        onBlur={() => {
+          if (value === "") setAsDate(false);
+        }}
+        className={fieldClass}
+      />
+    </div>
+  );
+}
 
 export function BookingForm() {
   const uid = useId();
@@ -117,7 +155,20 @@ export function BookingForm() {
       </h3>
 
       <div className="mt-8 flex flex-col gap-4">
-        {FIELDS.map(({ key, label, type, autoComplete, required }) => (
+        <DateField
+          id={fieldId("llegada")}
+          label="Fecha de llegada"
+          value={form.llegada}
+          onChange={update("llegada")}
+        />
+        <DateField
+          id={fieldId("salida")}
+          label="Fecha de salida"
+          value={form.salida}
+          onChange={update("salida")}
+        />
+
+        {TEXT_FIELDS.map(({ key, label, type, autoComplete, required }) => (
           <div key={key}>
             <label htmlFor={fieldId(key)} className={labelClass}>
               {label}

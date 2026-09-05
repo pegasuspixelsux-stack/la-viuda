@@ -53,14 +53,12 @@ body {
   font-feature-settings: "liga" 1, "onum" 1;
 }
 
-/* Native date inputs otherwise float their text to the top of the box and
-   size their own controls. Flexbox centres the value; the field's own
-   h-11 / px-4 utilities then make the box identical to the text inputs. */
+/* When a date field switches to its native type (on focus / once filled),
+   keep the value vertically centred and the picker icon pinned right so the
+   box still matches the text inputs around it. */
 input[type="date"] {
   display: flex;
   align-items: center;
-  /* Matches the rendered height of a text input at text-sm + py-3.5. */
-  min-height: 3.125rem;
 }
 input[type="date"]::-webkit-datetime-edit {
   padding: 0;
