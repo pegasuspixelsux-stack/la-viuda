@@ -35,7 +35,7 @@ export function Hero() {
     <section
       ref={ref}
       id="top"
-      className="relative flex min-h-[100svh] items-end overflow-hidden"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-24 md:pt-28"
     >
       <motion.div
         className="absolute inset-x-0 -inset-y-[8%]"
@@ -66,7 +66,7 @@ export function Hero() {
         variants={group}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto w-full max-w-wide px-6 pb-20 md:px-10 md:pb-28"
+        className="relative z-10 mx-auto w-full max-w-wide px-6 pb-12 md:px-10 md:pb-16"
       >
         <motion.p
           variants={fade}
@@ -79,7 +79,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="flex items-center gap-4 text-[clamp(2.7rem,9.9vw,7.65rem)] md:gap-6"
+              className="flex items-center gap-4 text-[clamp(2.4rem,8.8vw,6.8rem)] md:gap-6"
             >
               <Lighthouse
                 className="h-[0.46em] w-[0.46em] shrink-0 text-white"
@@ -92,7 +92,7 @@ export function Hero() {
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="block text-[clamp(2.7rem,9.9vw,7.65rem)]"
+              className="block text-[clamp(2.4rem,8.8vw,6.8rem)]"
             >
               de la Viuda
             </motion.span>
