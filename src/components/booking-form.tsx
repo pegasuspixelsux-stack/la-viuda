@@ -83,7 +83,7 @@ export function BookingForm() {
 
   if (sent) {
     return (
-      <div className="border border-luxury-gold/25 bg-luxury-charcoal p-8 text-center shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]">
+      <div className="border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 text-center shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]">
         <Check className="mx-auto h-8 w-8 text-luxury-blue" strokeWidth={1.25} />
         <h3 className="mt-4 font-serif text-xl font-light text-luxury-ink">
           Consulta preparada
@@ -109,7 +109,7 @@ export function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative border border-luxury-gold/25 bg-luxury-charcoal p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
+      className="relative border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
     >
       <span className="absolute right-0 top-0 bg-luxury-gold px-4 py-1 text-[0.58rem] font-medium uppercase tracking-[0.2em] text-white">
         Reserva directa
