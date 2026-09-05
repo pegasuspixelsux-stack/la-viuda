@@ -6,9 +6,17 @@ import path from "node:path";
  * Single Node process only: writes to a collection are serialised through an
  * in-process promise chain, and each write goes to a temp file that is then
  * atomically renamed into place.
+ *
+ * On a persistent host (VPS) this keeps data across restarts. On a read-only
+ * serverless host it falls back to `/tmp` (ephemeral — data resets between
+ * cold starts). Set DATA_DIR to override.
  */
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR =
+  process.env.DATA_DIR ||
+  (process.env.VERCEL
+    ? "/tmp/lcdlv-data"
+    : path.join(process.cwd(), "data"));
 
 const chains = new Map<string, Promise<unknown>>();
 
