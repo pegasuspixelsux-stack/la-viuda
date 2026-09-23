@@ -1,19 +1,21 @@
 import { Reveal } from "@/components/primitives/reveal";
 
-type Column = { label: string; items: string[] };
+type Column = { id: string; label: string; items: string[] };
 
 const columns: Column[] = [
   {
+    id: "particularidades",
     label: "Particularidades",
     items: [
       "Península privada junto al histórico faro de Punta Palmar.",
       "Posición elevada, con vistas amplias al Atlántico y a las dunas.",
       "Espíritu de refugio costero, con el confort de una casa moderna.",
       "Pensada para estadías largas y sin apuro en Punta del Diablo.",
-      "Privacidad y aislamiento reales, en pleno entorno natural.",
+      "Privacidad y confort reales, en pleno entorno natural.",
     ],
   },
   {
+    id: "comodidades",
     label: "Comodidades",
     items: [
       "Vistas panorámicas al océano y a la playa.",
@@ -24,6 +26,7 @@ const columns: Column[] = [
     ],
   },
   {
+    id: "detalles-servicios",
     label: "Servicios",
     items: [
       "Alquiler de la estancia completa, con autoservicio.",
@@ -55,7 +58,8 @@ export function PropertyDetailsSection() {
             {columns.map((column) => (
               <div
                 key={column.label}
-                className="flex flex-col gap-5 bg-luxury-dark p-8 md:p-10"
+                id={column.id}
+                className="flex scroll-mt-24 flex-col gap-5 bg-luxury-dark p-8 md:p-10"
               >
                 <p className="text-[0.68rem] font-medium uppercase tracking-[0.2em] text-luxury-gold">
                   {column.label}

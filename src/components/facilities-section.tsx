@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/primitives/reveal";
 
 type Facility = {
+  id: string;
   icon: LucideIcon;
   title: string;
   body: string;
@@ -15,6 +16,7 @@ type Facility = {
 // Images: Unsplash, free licence — placeholders for real property photography.
 const facilities: Facility[] = [
   {
+    id: "cocina",
     icon: UtensilsCrossed,
     title: "Cocina",
     body: "Totalmente equipada: dos heladeras, cocina a gas de cuatro hornallas con horno, y vajilla y utensilios para doce.",
@@ -23,6 +25,7 @@ const facilities: Facility[] = [
     alt: "Cocina equipada con isla y mesada de madera",
   },
   {
+    id: "energia",
     icon: Zap,
     title: "Energía y conexión",
     body: "Paneles solares, banco de baterías y motor auxiliar para electricidad confiable, incluso en días nublados. Red wifi gratuita.",
@@ -31,6 +34,7 @@ const facilities: Facility[] = [
     alt: "Paneles solares sobre el techo de una casa",
   },
   {
+    id: "banos",
     icon: Bath,
     title: "Baños y cuidado",
     body: "Cuatro baños con ducha, juegos completos de toallas y toallones de playa, y asistencia diaria de limpieza.",
@@ -58,10 +62,11 @@ export function FacilitiesSection() {
 
         <Reveal delay={0.08}>
           <div className="mt-14 grid gap-px overflow-hidden border border-luxury-gold/15 bg-luxury-gold/15 md:grid-cols-3">
-            {facilities.map(({ icon: Icon, title, body, image, alt }) => (
+            {facilities.map(({ id, icon: Icon, title, body, image, alt }) => (
               <div
                 key={title}
-                className="group relative flex min-h-[360px] flex-col justify-end overflow-hidden p-8 md:p-10"
+                id={id}
+                className="group relative flex min-h-[360px] scroll-mt-24 flex-col justify-end overflow-hidden p-8 md:p-10"
               >
                 <Image
                   src={image}
