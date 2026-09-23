@@ -52,7 +52,7 @@ export function FacilitiesSection() {
             Servicios e infraestructura
           </p>
           <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
-            Pensado para el confort, sin perder el aislamiento.
+            Pensado para el confort, sin perder la privacidad.
           </h2>
         </Reveal>
 
