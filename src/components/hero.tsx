@@ -82,7 +82,7 @@ export function Hero() {
               className="flex items-center gap-4 text-[clamp(2.6rem,9vw,6.5rem)] md:gap-6"
             >
               <Lighthouse
-                className="h-[0.46em] w-[0.46em] shrink-0 text-white"
+                className="h-[0.69em] w-[0.69em] shrink-0 text-white"
                 strokeWidth={1}
                 aria-hidden
               />
