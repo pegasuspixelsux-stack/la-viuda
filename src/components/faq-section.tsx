@@ -52,7 +52,7 @@ export function FaqSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Preguntas frecuentes
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Antes de reservar.
           </h2>
         </Reveal>
@@ -75,7 +75,7 @@ export function FaqSection() {
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold focus-visible:ring-offset-4 focus-visible:ring-offset-luxury-dark"
                     >
-                      <span className="font-serif text-lg font-light text-luxury-ink md:text-xl">
+                      <span className="font-serif text-lg font-normal text-luxury-ink md:text-xl">
                         {faq.q}
                       </span>
                       <ChevronDown
@@ -103,7 +103,7 @@ export function FaqSection() {
                         transition={{ duration: 0.4, ease: easeOut }}
                         className="overflow-hidden"
                       >
-                        <p className="max-w-xl pb-6 text-sm font-light leading-relaxed text-luxury-sand/85">
+                        <p className="max-w-xl pb-6 text-sm font-normal leading-relaxed text-black/85">
                           {faq.a}
                         </p>
                       </motion.dd>

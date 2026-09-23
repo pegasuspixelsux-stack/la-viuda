@@ -49,7 +49,7 @@ export function AvailabilityCalendar() {
         >
           ←
         </button>
-        <span className="font-serif text-lg font-light text-luxury-ink">
+        <span className="font-serif text-lg font-normal text-luxury-ink">
           {monthLabel(year, month)}
         </span>
         <button
@@ -98,7 +98,7 @@ export function AvailabilityCalendar() {
         })}
       </div>
 
-      <div className="flex flex-wrap gap-5 border-t border-luxury-gold/15 px-5 py-4 text-[0.7rem] font-light text-luxury-sand/85">
+      <div className="flex flex-wrap gap-5 border-t border-luxury-gold/15 px-5 py-4 text-[0.7rem] font-normal text-black/85">
         <span className="flex items-center gap-2">
           <span className="inline-block h-3 w-3 border border-luxury-gold/30 bg-luxury-dark" />
           Disponible

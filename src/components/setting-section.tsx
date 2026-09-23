@@ -40,10 +40,10 @@ export function SettingSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             El entorno
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Una península privada junto al faro de Punta Palmar.
           </h2>
-          <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 max-w-md text-sm font-normal leading-relaxed text-black/85 md:text-base">
             La casa se asienta sobre una punta de tierra al borde del océano.
             Alrededor, solo dunas, arena y roca — y una vista del Atlántico que no
             termina nunca.
@@ -56,7 +56,7 @@ export function SettingSection() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-luxury-blue"
                   strokeWidth={1.25}
                 />
-                <span className="text-sm font-light leading-relaxed text-luxury-sand/95">
+                <span className="text-sm font-normal leading-relaxed text-black/95">
                   {text}
                 </span>
               </li>

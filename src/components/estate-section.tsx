@@ -29,10 +29,10 @@ export function EstateSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             La estancia
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Independencia total y tranquilidad absoluta.
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Ubicada dentro de una estancia oceánica privada, a pocos pasos de la
             playa y lejos del ruido del pueblo. Pensada para quienes buscan
             descanso y un contacto auténtico con el entorno.
@@ -45,7 +45,7 @@ export function EstateSection() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-luxury-blue"
                   strokeWidth={1.25}
                 />
-                <span className="text-sm font-light leading-relaxed text-luxury-sand/95">
+                <span className="text-sm font-normal leading-relaxed text-black/95">
                   {text}
                 </span>
               </li>

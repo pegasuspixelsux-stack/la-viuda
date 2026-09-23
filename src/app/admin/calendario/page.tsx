@@ -64,10 +64,10 @@ export default async function CalendarPage({
     <div className="space-y-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-serif text-3xl font-light text-luxury-ink">
+          <h1 className="font-serif text-3xl font-normal text-luxury-ink">
             Calendario
           </h1>
-          <p className="mt-1 text-sm font-light text-luxury-sand/85">
+          <p className="mt-1 text-sm font-normal text-black/85">
             Fechas bloqueadas y reservas confirmadas de la propiedad.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default async function CalendarPage({
           >
             ←
           </Link>
-          <span className="min-w-40 text-center font-serif text-lg font-light text-luxury-ink">
+          <span className="min-w-40 text-center font-serif text-lg font-normal text-luxury-ink">
             {monthLabel(year, month)}
           </span>
           <Link
@@ -144,10 +144,10 @@ export default async function CalendarPage({
 
       <div className="grid gap-10 lg:grid-cols-2">
         <section>
-          <h2 className="font-serif text-xl font-light text-luxury-ink">
+          <h2 className="font-serif text-xl font-normal text-luxury-ink">
             Bloquear fechas
           </h2>
-          <p className="mt-1 text-[0.8rem] font-light text-luxury-sand/85">
+          <p className="mt-1 text-[0.8rem] font-normal text-black/85">
             Para reservas hechas por fuera del sitio (Airbnb, Booking, etc.).
           </p>
           <div className="mt-4 border border-luxury-gold/20 bg-luxury-charcoal p-5">
@@ -156,7 +156,7 @@ export default async function CalendarPage({
 
           <ul className="mt-5 divide-y divide-luxury-gold/15 border-y border-luxury-gold/15">
             {blocks.length === 0 ? (
-              <li className="py-4 text-[0.8rem] font-light text-luxury-sand/70">
+              <li className="py-4 text-[0.8rem] font-normal text-black/70">
                 Sin fechas bloqueadas.
               </li>
             ) : (
@@ -169,7 +169,7 @@ export default async function CalendarPage({
                     <p className="text-sm text-luxury-ink">
                       {formatRange(block.start, block.end)}
                     </p>
-                    <p className="text-[0.7rem] font-light text-luxury-sand/80">
+                    <p className="text-[0.7rem] font-normal text-black/80">
                       {block.reason}
                     </p>
                   </div>
@@ -188,16 +188,16 @@ export default async function CalendarPage({
         </section>
 
         <section>
-          <h2 className="font-serif text-xl font-light text-luxury-ink">
+          <h2 className="font-serif text-xl font-normal text-luxury-ink">
             Solicitudes pendientes
           </h2>
-          <p className="mt-1 text-[0.8rem] font-light text-luxury-sand/85">
+          <p className="mt-1 text-[0.8rem] font-normal text-black/85">
             Reservas pedidas desde el sitio. Ninguna se confirma automáticamente.
           </p>
 
           <ul className="mt-4 space-y-3">
             {pendingWithConflict.length === 0 ? (
-              <li className="border border-luxury-gold/20 bg-luxury-charcoal p-4 text-[0.8rem] font-light text-luxury-sand/70">
+              <li className="border border-luxury-gold/20 bg-luxury-charcoal p-4 text-[0.8rem] font-normal text-black/70">
                 No hay solicitudes pendientes.
               </li>
             ) : (
@@ -211,7 +211,7 @@ export default async function CalendarPage({
                       <p className="text-sm text-luxury-ink">
                         {reservation.guestName}
                       </p>
-                      <p className="text-[0.72rem] font-light text-luxury-sand/85">
+                      <p className="text-[0.72rem] font-normal text-black/85">
                         {reservation.guestEmail}
                         {reservation.guestPhone
                           ? ` · ${reservation.guestPhone}`
@@ -230,7 +230,7 @@ export default async function CalendarPage({
                     {reservation.guests === 1 ? "huésped" : "huéspedes"}
                   </p>
                   {reservation.message ? (
-                    <p className="mt-2 text-[0.75rem] font-light italic text-luxury-sand/80">
+                    <p className="mt-2 text-[0.75rem] font-normal italic text-black/80">
                       “{reservation.message}”
                     </p>
                   ) : null}

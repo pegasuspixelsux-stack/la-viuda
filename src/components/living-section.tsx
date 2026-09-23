@@ -15,17 +15,17 @@ export function LivingSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             El salón
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             En torno al fuego, frente al mar.
           </h2>
-          <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 max-w-md text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Sofás amplios y una gran mesa de madera para reunir a familia y
             amigos. La chimenea a leña marca el ritmo de las noches; los
             ventanales, el de los días — rocas, playa y las luces lejanas de
             Punta del Diablo.
           </p>
 
-          <p className="mt-8 flex items-center gap-3 text-sm font-light text-luxury-gold">
+          <p className="mt-8 flex items-center gap-3 text-sm font-normal text-luxury-gold">
             <Flame className="h-5 w-5 shrink-0" strokeWidth={1.25} />
             Un asiento en primera fila para el teatro de la naturaleza.
           </p>

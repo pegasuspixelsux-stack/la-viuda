@@ -131,24 +131,24 @@ export default async function LegalPage({
         <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
           Información legal
         </p>
-        <h1 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-ink md:text-5xl">
+        <h1 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-ink md:text-5xl">
           {doc.title}
         </h1>
-        <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+        <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
           {doc.summary}
         </p>
 
         <div className="mt-14 space-y-12">
           {doc.sections.map((section) => (
             <section key={section.heading}>
-              <h2 className="font-serif text-2xl font-light text-luxury-ink">
+              <h2 className="font-serif text-2xl font-normal text-luxury-ink">
                 {section.heading}
               </h2>
               <div className="mt-4 space-y-4">
                 {section.body.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="text-sm font-light leading-relaxed text-luxury-sand/85"
+                    className="text-sm font-normal leading-relaxed text-black/85"
                   >
                     {paragraph}
                   </p>
@@ -158,7 +158,7 @@ export default async function LegalPage({
           ))}
         </div>
 
-        <p className="mt-16 text-xs font-light leading-relaxed text-luxury-mist">
+        <p className="mt-16 text-xs font-normal leading-relaxed text-luxury-mist">
           Documento en revisión. El texto definitivo será validado antes del
           lanzamiento comercial.
         </p>

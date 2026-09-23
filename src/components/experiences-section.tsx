@@ -102,10 +102,10 @@ export function ExperiencesSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Al aire libre
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             El océano como patio de juegos.
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Sumergite en las dunas, caminá la playa y respondé al llamado del mar
             en Punta Palmar.
           </p>
@@ -152,10 +152,10 @@ export function ExperiencesSection() {
                   strokeWidth={1.25}
                   aria-hidden
                 />
-                <h3 className="font-serif text-2xl font-light text-white">
+                <h3 className="font-serif text-2xl font-normal text-white">
                   {title}
                 </h3>
-                <p className="text-sm font-light leading-relaxed text-white/92">
+                <p className="text-sm font-normal leading-relaxed text-white/92">
                   {detail}
                 </p>
               </div>
@@ -171,10 +171,10 @@ export function ExperiencesSection() {
               aria-hidden
             />
             <div>
-              <h3 className="font-serif text-xl font-light text-luxury-ink">
+              <h3 className="font-serif text-xl font-normal text-luxury-ink">
                 Plantar y cuidar
               </h3>
-              <p className="mt-2 max-w-2xl text-sm font-light leading-relaxed text-luxury-sand/85">
+              <p className="mt-2 max-w-2xl text-sm font-normal leading-relaxed text-black/85">
                 Sumate a plantar un árbol como legado vivo, o a juntar el plástico
                 que la marea deja en la costa. Pequeños gestos, con vista al mar.
               </p>

@@ -25,7 +25,7 @@ export function BrandMark({ tone = "onLight", className = "" }: BrandMarkProps) 
         <span className="font-serif text-[0.58rem] font-normal uppercase tracking-[0.42em]">
           La Casa
         </span>
-        <span className="mt-1 font-serif text-[0.95rem] font-light uppercase tracking-[0.32em]">
+        <span className="mt-1 font-serif text-[0.95rem] font-normal uppercase tracking-[0.32em]">
           de la Viuda
         </span>
       </span>

@@ -85,10 +85,10 @@ export function BedroomsSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Las habitaciones
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Siete habitaciones, hasta once huéspedes.
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Ropa de cama de lino, almohadas antialérgicas y mantas de lana para
             las noches frescas. Algunas de las habitaciones:
           </p>
@@ -141,10 +141,10 @@ export function BedroomsSection() {
                   strokeWidth={1.25}
                   aria-hidden
                 />
-                <h3 className="font-serif text-2xl font-light text-white">
+                <h3 className="font-serif text-2xl font-normal text-white">
                   {room.name}
                 </h3>
-                <p className="text-sm font-light leading-relaxed text-white/92">
+                <p className="text-sm font-normal leading-relaxed text-white/92">
                   {room.detail}
                 </p>
               </div>

@@ -75,11 +75,11 @@ export function Hero() {
           Frente al océano Atlántico
         </motion.p>
 
-        <h1 className="font-serif font-light leading-[0.9] text-white">
+        <h1 className="font-serif font-normal leading-[0.9] text-white">
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="flex items-center gap-4 text-[clamp(3.4rem,12vw,8.5rem)] md:gap-6"
+              className="flex items-center gap-4 text-[clamp(2.6rem,9vw,6.5rem)] md:gap-6"
             >
               <Lighthouse
                 className="h-[0.46em] w-[0.46em] shrink-0 text-white"
@@ -89,10 +89,10 @@ export function Hero() {
               La Casa
             </motion.span>
           </span>
-          <span className="block overflow-hidden pb-[0.08em]">
+          <span className="mt-3 block overflow-hidden pb-[0.08em]">
             <motion.span
               variants={lineReveal}
-              className="block text-[clamp(3.4rem,12vw,8.5rem)]"
+              className="block text-[clamp(2.6rem,9vw,6.5rem)]"
             >
               de la Viuda
             </motion.span>
@@ -101,7 +101,7 @@ export function Hero() {
 
         <motion.p
           variants={fade}
-          className="mt-8 max-w-xl text-base font-light leading-relaxed text-white/95 md:text-lg"
+          className="mt-8 max-w-xl text-base font-normal leading-relaxed text-white/95 md:text-lg"
         >
           Una experiencia única de conexión con la naturaleza en Punta del
           Diablo. Un refugio privado de hasta 11 huéspedes rodeado de bosques
@@ -133,7 +133,7 @@ export function Hero() {
               <span className="text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88">
                 Fechas
               </span>
-              <span className="text-sm font-light text-luxury-ink">
+              <span className="text-sm font-normal text-luxury-ink">
                 Bloque semanal
               </span>
             </span>
@@ -148,7 +148,7 @@ export function Hero() {
               <span className="text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88">
                 Huéspedes
               </span>
-              <span className="text-sm font-light text-luxury-ink">
+              <span className="text-sm font-normal text-luxury-ink">
                 Hasta 11 personas
               </span>
             </span>

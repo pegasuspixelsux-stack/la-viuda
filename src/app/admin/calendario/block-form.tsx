@@ -5,7 +5,7 @@ import { useActionState, useEffect, useRef } from "react";
 import { createBlock, type BlockFormState } from "./actions";
 
 const fieldClass =
-  "w-full border border-luxury-gold/30 bg-luxury-dark px-3 py-2 text-sm font-light text-luxury-ink " +
+  "w-full border border-luxury-gold/30 bg-luxury-dark px-3 py-2 text-sm font-normal text-luxury-ink " +
   "focus-visible:border-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
 
 const labelClass =
@@ -52,7 +52,7 @@ export function BlockForm() {
       </div>
 
       {state && "error" in state ? (
-        <p role="alert" className="text-[0.8rem] font-light text-red-700">
+        <p role="alert" className="text-[0.8rem] font-normal text-red-700">
           {state.error}
         </p>
       ) : null}

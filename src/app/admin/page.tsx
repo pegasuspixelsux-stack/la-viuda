@@ -23,10 +23,10 @@ export default async function AdminHome() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl font-light text-luxury-ink">
+      <h1 className="font-serif text-3xl font-normal text-luxury-ink">
         Panel de control
       </h1>
-      <p className="mt-2 max-w-2xl text-sm font-light leading-relaxed text-luxury-sand/85">
+      <p className="mt-2 max-w-2xl text-sm font-normal leading-relaxed text-black/85">
         Gestión del calendario y de las solicitudes de reserva. Los KPIs de
         ocupación y el CRM de leads llegan en los próximos incrementos.
       </p>
@@ -45,7 +45,7 @@ export default async function AdminHome() {
               {card.label}
             </dt>
             <dd
-              className={`mt-2 font-serif text-3xl font-light ${
+              className={`mt-2 font-serif text-3xl font-normal ${
                 card.highlight ? "text-white" : "text-luxury-ink"
               }`}
             >

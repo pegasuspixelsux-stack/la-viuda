@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { login, type LoginState } from "@/lib/auth/actions";
 
 const fieldClass =
-  "w-full border border-luxury-gold/30 bg-luxury-dark px-4 py-3 text-sm font-light text-luxury-ink " +
+  "w-full border border-luxury-gold/30 bg-luxury-dark px-4 py-3 text-sm font-normal text-luxury-ink " +
   "focus-visible:border-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
 
 const labelClass =
@@ -25,7 +25,7 @@ export function LoginForm({ next }: { next?: string }) {
       <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
         Acceso al panel
       </p>
-      <h1 className="mt-3 font-serif text-2xl font-light text-luxury-ink">
+      <h1 className="mt-3 font-serif text-2xl font-normal text-luxury-ink">
         Iniciá sesión
       </h1>
 
@@ -63,7 +63,7 @@ export function LoginForm({ next }: { next?: string }) {
       {state?.error ? (
         <p
           role="alert"
-          className="mt-4 border-l-2 border-red-400 bg-red-50 px-3 py-2 text-[0.8rem] font-light text-red-800"
+          className="mt-4 border-l-2 border-red-400 bg-red-50 px-3 py-2 text-[0.8rem] font-normal text-red-800"
         >
           {state.error}
         </p>
@@ -77,7 +77,7 @@ export function LoginForm({ next }: { next?: string }) {
         {pending ? "Ingresando…" : "Ingresar"}
       </button>
 
-      <div className="mt-5 border-t border-luxury-gold/15 pt-4 text-[0.68rem] font-light leading-relaxed text-luxury-sand/80">
+      <div className="mt-5 border-t border-luxury-gold/15 pt-4 text-[0.68rem] font-normal leading-relaxed text-black/80">
         <p className="mb-1 text-[0.56rem] font-medium uppercase tracking-[0.16em] text-luxury-sand/60">
           Cuentas de demostración
         </p>

@@ -26,7 +26,7 @@ export default async function LoginPage({
           <BrandMark tone="onLight" />
         </Link>
         <LoginForm next={next} />
-        <div className="mt-5 flex flex-wrap justify-between gap-3 text-[0.68rem] font-light text-luxury-sand/75">
+        <div className="mt-5 flex flex-wrap justify-between gap-3 text-[0.68rem] font-normal text-luxury-sand/75">
           <Link href="/" className="transition-colors hover:text-luxury-gold">
             ← Volver al sitio
           </Link>

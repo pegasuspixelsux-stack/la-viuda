@@ -33,10 +33,10 @@ export function ResidenceSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             La residencia
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Madera, luz y océano en cada ambiente.
           </h2>
-          <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 max-w-md text-sm font-normal leading-relaxed text-black/85 md:text-base">
             La casa principal está hecha de materiales nobles y ambientes
             cálidos, con grandes vanos que borran el límite entre el interior y
             el paisaje. El sonido del mar no se va nunca.
@@ -49,7 +49,7 @@ export function ResidenceSection() {
                   className="mt-0.5 h-5 w-5 shrink-0 text-luxury-blue"
                   strokeWidth={1.25}
                 />
-                <span className="text-sm font-light leading-relaxed text-luxury-sand/95">
+                <span className="text-sm font-normal leading-relaxed text-black/95">
                   {text}
                 </span>
               </li>

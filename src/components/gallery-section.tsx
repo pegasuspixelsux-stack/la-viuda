@@ -58,7 +58,7 @@ export function GallerySection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             La casa y su costa
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Un recorrido en imágenes.
           </h2>
         </Reveal>
@@ -79,7 +79,7 @@ export function GallerySection() {
                 />
                 {tile.caption ? (
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f2432]/85 via-[#0f2432]/25 to-transparent p-6 pt-20">
-                    <span className="font-serif text-base font-light text-white md:text-lg">
+                    <span className="font-serif text-base font-normal text-white md:text-lg">
                       {tile.caption}
                     </span>
                   </figcaption>

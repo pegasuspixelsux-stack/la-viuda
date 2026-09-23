@@ -16,10 +16,10 @@ export default async function CuentaPage() {
       <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
         Área de clientes
       </p>
-      <h1 className="mt-3 font-serif text-3xl font-light text-luxury-ink">
+      <h1 className="mt-3 font-serif text-3xl font-normal text-luxury-ink">
         Hola, {user.name}.
       </h1>
-      <p className="mt-4 text-sm font-light leading-relaxed text-luxury-sand/85">
+      <p className="mt-4 text-sm font-normal leading-relaxed text-black/85">
         Tu acceso está activo. Pronto vas a poder consultar disponibilidad y
         seguir tus solicitudes de reserva desde acá.
       </p>

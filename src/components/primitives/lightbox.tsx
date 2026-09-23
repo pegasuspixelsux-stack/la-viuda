@@ -84,7 +84,7 @@ export function Lightbox({ item, onClose }: LightboxProps) {
                 <p className="text-[0.62rem] font-medium uppercase tracking-[0.22em] text-white/80">
                   {item.kind}
                 </p>
-                <h3 className="mt-1 font-serif text-2xl font-light text-white md:text-3xl">
+                <h3 className="mt-1 font-serif text-2xl font-normal text-white md:text-3xl">
                   {item.title}
                 </h3>
               </div>
@@ -95,7 +95,7 @@ export function Lightbox({ item, onClose }: LightboxProps) {
                 <p className="text-[0.62rem] font-medium uppercase tracking-[0.22em] text-luxury-gold">
                   Detalle
                 </p>
-                <p className="mt-4 text-sm font-light leading-relaxed text-luxury-sand/85">
+                <p className="mt-4 text-sm font-normal leading-relaxed text-black/85">
                   {item.detail}
                 </p>
               </div>

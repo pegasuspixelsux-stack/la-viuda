@@ -10,7 +10,7 @@ const INBOX = "reservas@lacasadelaviuda.uy";
 // aligned — same width, padding, border and focus ring everywhere.
 const fieldClass =
   "block h-[3.125rem] w-full min-w-0 appearance-none border border-luxury-gold/30 bg-luxury-dark " +
-  "px-4 text-sm font-light text-luxury-ink placeholder:text-luxury-mist [color-scheme:light] " +
+  "px-4 text-sm font-normal text-luxury-ink placeholder:text-luxury-mist [color-scheme:light] " +
   "focus-visible:border-luxury-gold focus-visible:outline-none focus-visible:ring-1 " +
   "focus-visible:ring-luxury-gold";
 
@@ -117,10 +117,10 @@ export function BookingForm() {
     return (
       <div className="border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 text-center shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]">
         <Check className="mx-auto h-8 w-8 text-luxury-blue" strokeWidth={1.25} />
-        <h3 className="mt-4 font-serif text-xl font-light text-luxury-ink">
+        <h3 className="mt-4 font-serif text-xl font-normal text-luxury-ink">
           Consulta preparada
         </h3>
-        <p className="mt-2 text-sm font-light leading-relaxed text-luxury-sand/85">
+        <p className="mt-2 text-sm font-normal leading-relaxed text-black/85">
           Se abrió tu cliente de correo con los datos listos para enviar a{" "}
           {INBOX}. Te respondemos a la brevedad.
         </p>
@@ -150,7 +150,7 @@ export function BookingForm() {
       <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
         Consulta de disponibilidad
       </p>
-      <h3 className="mt-3 font-serif text-2xl font-light text-luxury-ink">
+      <h3 className="mt-3 font-serif text-2xl font-normal text-luxury-ink">
         Consultá tu estadía
       </h3>
 
@@ -202,7 +202,7 @@ export function BookingForm() {
         />
       </button>
 
-      <p className="mt-4 text-[0.7rem] font-normal leading-relaxed text-luxury-sand/85">
+      <p className="mt-4 text-[0.7rem] font-normal leading-relaxed text-black/85">
         El botón abre tu cliente de correo con la consulta redactada. No se envía
         ningún dato automáticamente.
       </p>

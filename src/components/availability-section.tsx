@@ -12,10 +12,10 @@ export function AvailabilitySection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Disponibilidad
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Consultá el calendario.
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Las fechas ocupadas se actualizan con las reservas confirmadas y los
             bloqueos de la administración. Con total transparencia, antes de
             escribirnos.

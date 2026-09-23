@@ -45,7 +45,7 @@ export function AdminNav({ email }: { email: string }) {
               {item.label}
             </Link>
           ))}
-          <span className="text-[0.7rem] font-light text-luxury-sand/85">
+          <span className="text-[0.7rem] font-normal text-black/85">
             {email}
           </span>
           <form action={logout}>
@@ -84,7 +84,7 @@ export function AdminNav({ email }: { email: string }) {
               </Link>
             ))}
           </div>
-          <p className="mt-3 text-[0.7rem] font-light text-luxury-sand/85">
+          <p className="mt-3 text-[0.7rem] font-normal text-black/85">
             {email}
           </p>
           <form action={logout} className="mt-2">

@@ -51,7 +51,7 @@ export function FacilitiesSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Servicios e infraestructura
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-5xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
             Pensado para el confort, sin perder el aislamiento.
           </h2>
         </Reveal>
@@ -78,10 +78,10 @@ export function FacilitiesSection() {
                     strokeWidth={1.25}
                     aria-hidden
                   />
-                  <h3 className="font-serif text-xl font-light text-white">
+                  <h3 className="font-serif text-xl font-normal text-white">
                     {title}
                   </h3>
-                  <p className="text-sm font-light leading-relaxed text-white/92">
+                  <p className="text-sm font-normal leading-relaxed text-white/92">
                     {body}
                   </p>
                 </div>

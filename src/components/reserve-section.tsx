@@ -19,10 +19,10 @@ export function ReserveSection() {
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
             Reserva directa
           </p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-luxury-sand md:text-6xl">
+          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-6xl">
             Asegura tu estadía exclusiva.
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed text-luxury-sand/85 md:text-base">
+          <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             Enviá la consulta de disponibilidad, o escribinos directamente por
             WhatsApp o correo. El alquiler se coordina mediante contrato personal.
           </p>
