@@ -13,7 +13,6 @@ type Facility = {
   alt: string;
 };
 
-// Images: Unsplash, free licence — placeholders for real property photography.
 const facilities: Facility[] = [
   {
     id: "cocina",
@@ -21,7 +20,7 @@ const facilities: Facility[] = [
     title: "Cocina",
     body: "Totalmente equipada: dos heladeras, cocina a gas de cuatro hornallas con horno, y vajilla y utensilios para doce.",
     image:
-      "https://images.unsplash.com/photo-1632583824020-937ae9564495?q=80&w=1100&auto=format&fit=crop",
+      "/images/cocina-equipada.webp",
     alt: "Cocina equipada con isla y mesada de madera",
   },
   {
@@ -30,8 +29,8 @@ const facilities: Facility[] = [
     title: "Energía y conexión",
     body: "Paneles solares, banco de baterías y motor auxiliar para electricidad confiable, incluso en días nublados. Red wifi gratuita.",
     image:
-      "https://images.unsplash.com/photo-1655300256335-beef51a914fe?q=80&w=1100&auto=format&fit=crop",
-    alt: "Paneles solares sobre el techo de una casa",
+      "/images/cielo-de-fuego-sobre-la-casa.webp",
+    alt: "La casa al atardecer, con el jardín frente al océano",
   },
   {
     id: "banos",
@@ -39,8 +38,8 @@ const facilities: Facility[] = [
     title: "Baños y cuidado",
     body: "Cuatro baños con ducha, juegos completos de toallas y toallones de playa, y asistencia diaria de limpieza.",
     image:
-      "https://images.unsplash.com/photo-1763485956243-50068d04a1ad?q=80&w=1100&auto=format&fit=crop",
-    alt: "Baño con ducha y vanitory largo",
+      "/images/bano-con-vanitory.webp",
+    alt: "Baño con vanitory y luz natural",
   },
 ];
 

@@ -3,6 +3,7 @@ import { Reveal } from "@/components/primitives/reveal";
 const facts = [
   { term: "Dirección", detail: "Ruta 9, km 295,7" },
   { term: "Desde Montevideo", detail: "245 km — cerca de 3 h 30 en auto" },
+  { term: "Al pueblo", detail: "2,5 km — a pie por la playa" },
   { term: "Entorno", detail: "Estancia privada, playa y bosque nativo" },
 ];
 
@@ -21,9 +22,11 @@ export function LocationSection() {
             Ruta 9, Punta del Diablo
           </h2>
           <p className="mt-6 max-w-md text-sm font-normal leading-relaxed text-black/85 md:text-base">
-            Sobre la Ruta 9, km 295,7, en el departamento de Rocha. El pueblo,
-            sus restaurantes y la Playa Grande quedan a pocos minutos; la casa, a
-            un mundo de distancia.
+            Punta del Diablo, departamento de Rocha. Te alojás en el lugar más
+            conocido de Punta del Diablo: Punta Palmar, fuente de leyendas y
+            relatos populares. La casa y su faro, visibles desde lejos, le
+            dan nombre a la playa. Caminando por la orilla se llega al pueblo,
+            a 2,5 km, con sus comercios y restaurantes.
           </p>
         </Reveal>
 

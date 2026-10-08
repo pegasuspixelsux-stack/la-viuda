@@ -3,9 +3,9 @@ import { Compass, Mountain, Waves } from "lucide-react";
 import { ParallaxImage } from "@/components/primitives/parallax-image";
 import { Reveal } from "@/components/primitives/reveal";
 
-// Faro de Punta Palmar, Punta del Diablo (Unsplash, free licence).
+// Faro de Punta Palmar, Punta del Diablo.
 const LIGHTHOUSE_IMAGE =
-  "https://images.unsplash.com/photo-1647438027182-8e47ef11b0fd?q=82&w=1400&auto=format&fit=crop";
+  "/images/el-faro-y-el-jardin.webp";
 
 const points = [
   {

@@ -10,41 +10,40 @@ type Tile = {
   caption?: string;
 };
 
-// All Unsplash, free licence — placeholders for commissioned estate photography.
 const tiles: Tile[] = [
   {
-    src: "https://images.unsplash.com/photo-1673372866999-ef45dc825a84?q=80&w=1400&auto=format&fit=crop",
-    alt: "Costa rocosa de Punta del Diablo al atardecer",
+    src: "/images/el-faro-y-la-casa.webp",
+    alt: "La casa y el faro de Punta Palmar sobre la costa",
     span: "col-span-2 md:row-span-2",
     caption: "La península privada, con el faro de Punta Palmar al fondo.",
   },
   {
-    src: "https://images.unsplash.com/photo-1747252484886-449d8f9fbeb3?q=80&w=1400&auto=format&fit=crop",
-    alt: "Vista aérea de la costa de Punta del Diablo",
+    src: "/images/atardecer-sobre-la-bahia.webp",
+    alt: "Playa de Punta del Diablo al atardecer",
     span: "col-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1647438027182-8e47ef11b0fd?q=82&w=900&auto=format&fit=crop",
-    alt: "El faro de Punta Palmar al anochecer",
+    src: "/images/camino-hacia-el-faro.webp",
+    alt: "Camino de arena hacia el faro de Punta Palmar",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1626530562079-cbd42d351e5f?q=80&w=900&auto=format&fit=crop",
-    alt: "Olas y surfistas frente a la costa de Punta del Diablo",
+    src: "/images/surfistas-y-dunas.webp",
+    alt: "Surfistas entre las olas frente a la costa",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1747846722182-a82613dbd2f4?q=80&w=1400&auto=format&fit=crop",
-    alt: "Playa de arena de Punta del Diablo bajo un cielo despejado",
+    src: "/images/playa-al-anochecer.webp",
+    alt: "Playa de arena al atardecer",
     span: "col-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1785962019598-2c71b10357b9?q=80&w=900&auto=format&fit=crop",
+    src: "/images/living-al-atardecer.webp",
     alt: "Salón con grandes ventanales abiertos al océano",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1747847219841-110625066120?q=80&w=900&auto=format&fit=crop",
+    src: "/images/costa-rocosa.webp",
     alt: "Rocas y océano Atlántico frente a la casa",
     span: "col-span-1",
   },

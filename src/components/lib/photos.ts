@@ -1,0 +1,77 @@
+export type PhotoCategory =
+  | "interiores"
+  | "dormitorios"
+  | "cocina-banos"
+  | "jardin"
+  | "costa";
+
+export type Photo = {
+  src: string;
+  width: number;
+  height: number;
+  category: PhotoCategory;
+  title: string;
+  alt: string;
+};
+
+export const photoCategories: { id: PhotoCategory | "todas"; label: string }[] = [
+  { id: "todas", label: "Todas" },
+  { id: "interiores", label: "Interiores" },
+  { id: "dormitorios", label: "Dormitorios" },
+  { id: "cocina-banos", label: "Cocina y baños" },
+  { id: "jardin", label: "Jardín" },
+  { id: "costa", label: "Playa y costa" },
+];
+
+export const photos: Photo[] = [
+  { src: "/images/bano-con-bide.webp", title: "Baño con bidé", width: 1200, height: 800, category: "cocina-banos", alt: "Baño con lavabo de pie, bidé e inodoro y azulejos blancos" },
+  { src: "/images/bano-con-vanitory.webp", title: "Baño con vanitory", width: 900, height: 1200, category: "cocina-banos", alt: "Baño con vanitory de madera, espejo y ventana" },
+  { src: "/images/rocas-al-atardecer.webp", title: "Rocas al atardecer", width: 1200, height: 900, category: "costa", alt: "Rocas grandes junto al mar con el sol bajo sobre el horizonte" },
+  { src: "/images/playa-al-anochecer.webp", title: "Playa al anochecer", width: 1200, height: 928, category: "costa", alt: "Playa de arena al anochecer con cielo rosado sobre el mar" },
+  { src: "/images/el-faro-y-la-casa.webp", title: "El faro y la casa", width: 1200, height: 800, category: "costa", alt: "Faro rojo y blanco de Punta Palmar junto a la casa, con arcoíris sobre la costa" },
+  { src: "/images/caminata-por-la-playa.webp", title: "Caminata por la playa", width: 1200, height: 1083, category: "costa", alt: "Caminante solo por una playa de arena abierta bajo un cielo azul" },
+  { src: "/images/atardecer-y-aloes.webp", title: "Atardecer y aloes", width: 1200, height: 800, category: "costa", alt: "Atardecer rosado sobre la costa rocosa con aloes rojos en flor" },
+  { src: "/images/surf-en-la-orilla.webp", title: "Surf en la orilla", width: 1200, height: 1091, category: "costa", alt: "Mujer con traje de neopreno entrando al mar con una tabla de surf" },
+  { src: "/images/cabalgata-junto-al-mar.webp", title: "Cabalgata junto al mar", width: 1200, height: 1083, category: "costa", alt: "Dos personas a caballo por la orilla de la playa" },
+  { src: "/images/atardecer-sobre-la-bahia.webp", title: "Atardecer sobre la bahía", width: 1200, height: 800, category: "costa", alt: "Atardecer dorado sobre la bahía y las rocas de la costa" },
+  { src: "/images/surfistas-y-dunas.webp", title: "Surfistas y dunas", width: 1200, height: 800, category: "costa", alt: "Surfistas caminando por la orilla frente a las dunas" },
+  { src: "/images/oleaje-al-atardecer.webp", title: "Oleaje al atardecer", width: 800, height: 1200, category: "costa", alt: "Ola rompiendo con luz anaranjada del atardecer" },
+  { src: "/images/espuma-al-atardecer.webp", title: "Espuma al atardecer", width: 900, height: 1200, category: "costa", alt: "Espuma de las olas en la orilla bajo un cielo de atardecer" },
+  { src: "/images/dormitorio-con-vista-al-mar.webp", title: "Dormitorio con vista al mar", width: 1200, height: 800, category: "dormitorios", alt: "Dormitorio con ventana al mar y toallas dobladas sobre la cama" },
+  { src: "/images/dormitorio-individual.webp", title: "Dormitorio individual", width: 675, height: 1200, category: "dormitorios", alt: "Dormitorio con cama individual y ventana al exterior" },
+  { src: "/images/dormitorio-con-vista-al-campo.webp", title: "Dormitorio con vista al campo", width: 900, height: 1200, category: "dormitorios", alt: "Dormitorio con cama individual y ventana abierta al campo" },
+  { src: "/images/dormitorio-con-vista-a-los-agaves.webp", title: "Dormitorio con vista a los agaves", width: 900, height: 1200, category: "dormitorios", alt: "Dormitorio con ventana que da a agaves y toallas sobre la cama" },
+  { src: "/images/dormitorio-con-chimenea.webp", title: "Dormitorio con chimenea", width: 1200, height: 800, category: "dormitorios", alt: "Dormitorio con cama matrimonial, chimenea revestida en azulejos y ventanas al mar" },
+  { src: "/images/dormitorio-con-dos-camas.webp", title: "Dormitorio con dos camas", width: 1200, height: 900, category: "dormitorios", alt: "Dormitorio amplio con dos camas individuales, piso de baldosa y ventanas" },
+  { src: "/images/dormitorio-matrimonial.webp", title: "Dormitorio matrimonial", width: 675, height: 1200, category: "dormitorios", alt: "Cama matrimonial con ropa de cama blanca y toallas" },
+  { src: "/images/dormitorio-soleado.webp", title: "Dormitorio soleado", width: 1200, height: 900, category: "dormitorios", alt: "Dormitorio soleado con cama y alfombra sobre piso de baldosa" },
+  { src: "/images/rincon-con-estufa-a-lena.webp", title: "Rincón con estufa a leña", width: 1200, height: 800, category: "dormitorios", alt: "Rincón con lámpara, silla y estufa a leña encendida" },
+  { src: "/images/ventana-al-atardecer.webp", title: "Ventana al atardecer", width: 900, height: 1200, category: "dormitorios", alt: "Ventana con vista al atardecer y un jarrón con ramas de eucalipto" },
+  { src: "/images/detalle-con-eucalipto.webp", title: "Detalle con eucalipto", width: 1200, height: 803, category: "dormitorios", alt: "Jarrón celeste con ramas de eucalipto sobre un mueble" },
+  { src: "/images/rincon-de-lectura.webp", title: "Rincón de lectura", width: 1200, height: 800, category: "dormitorios", alt: "Rincón de lectura con lámpara de pie, sombrero y estufa a leña" },
+  { src: "/images/comedor-con-chimenea.webp", title: "Comedor con chimenea", width: 1200, height: 900, category: "interiores", alt: "Comedor con larga mesa de madera, chimenea y ventanales" },
+  { src: "/images/pesca-frente-a-las-olas.webp", title: "Pesca frente a las olas", width: 1200, height: 1073, category: "costa", alt: "Pescador de pie frente a las olas en la orilla" },
+  { src: "/images/la-casa-al-atardecer.webp", title: "La casa al atardecer", width: 1200, height: 800, category: "jardin", alt: "Frente de la casa con jardín, mesa y sillas bajo un cielo de atardecer" },
+  { src: "/images/jardin-frente-al-mar.webp", title: "Jardín frente al mar", width: 1200, height: 800, category: "jardin", alt: "Jardín con sillas de madera frente al mar y aloes en flor" },
+  { src: "/images/el-faro-y-el-jardin.webp", title: "El faro y el jardín", width: 1200, height: 800, category: "jardin", alt: "Faro rojo y blanco junto al jardín y la casa" },
+  { src: "/images/vista-al-oceano.webp", title: "Vista al océano", width: 1200, height: 800, category: "jardin", alt: "Vista al océano entre agaves y un cerco de madera" },
+  { src: "/images/aloes-al-atardecer.webp", title: "Aloes al atardecer", width: 1200, height: 800, category: "jardin", alt: "Aloes rojos frente al mar con cielo rosado" },
+  { src: "/images/mesa-al-aire-libre.webp", title: "Mesa al aire libre", width: 1200, height: 800, category: "jardin", alt: "Mesa y sillas de madera al aire libre con ramas de eucalipto y agaves al fondo" },
+  { src: "/images/la-casa-entre-los-aloes.webp", title: "La casa entre los aloes", width: 1200, height: 801, category: "jardin", alt: "La casa de tejas rojas entre aloes bajo un cielo de nubes" },
+  { src: "/images/cielo-de-fuego-sobre-la-casa.webp", title: "Cielo de fuego sobre la casa", width: 1200, height: 800, category: "jardin", alt: "La casa con luces encendidas bajo un cielo de fuego al atardecer" },
+  { src: "/images/la-costa-desde-el-jardin.webp", title: "La costa desde el jardín", width: 900, height: 1200, category: "jardin", alt: "La costa vista desde el jardín entre agaves" },
+  { src: "/images/cielo-rosado-sobre-las-rocas.webp", title: "Cielo rosado sobre las rocas", width: 900, height: 1200, category: "jardin", alt: "Cielo rosado sobre las rocas de la costa y un cerco de madera" },
+  { src: "/images/costa-rocosa.webp", title: "Costa rocosa", width: 1200, height: 800, category: "jardin", alt: "Costa rocosa con agaves y cerco de soga bajo un cielo azul" },
+  { src: "/images/cocina-equipada.webp", title: "Cocina equipada", width: 1200, height: 800, category: "cocina-banos", alt: "Cocina con isla de madera, cocina a gas, heladera y alacenas" },
+  { src: "/images/living-al-atardecer.webp", title: "Living al atardecer", width: 1200, height: 800, category: "interiores", alt: "Living con sofá, mesa ratona y ventanales al atardecer" },
+  { src: "/images/living-y-escalera.webp", title: "Living y escalera", width: 1200, height: 900, category: "interiores", alt: "Living amplio con sillones, escalera de madera y techo con vigas" },
+  { src: "/images/comedor-frente-al-mar.webp", title: "Comedor frente al mar", width: 1200, height: 800, category: "interiores", alt: "Comedor con mesa de madera y velas frente a ventanales al mar" },
+  { src: "/images/mesa-del-comedor.webp", title: "Mesa del comedor", width: 1200, height: 800, category: "interiores", alt: "Mesa de comedor con velas, sillones y vista al jardín y al mar" },
+  { src: "/images/vista-desde-el-living.webp", title: "Vista desde el living", width: 1200, height: 800, category: "interiores", alt: "Puerta abierta al jardín con sillas y vista al mar" },
+  { src: "/images/rincon-junto-a-la-ventana.webp", title: "Rincón junto a la ventana", width: 1200, height: 800, category: "interiores", alt: "Lámpara y sillón junto a una ventana con aloes y sillas en el jardín" },
+  { src: "/images/chimenea-a-lena.webp", title: "Chimenea a leña", width: 1200, height: 800, category: "interiores", alt: "Chimenea a leña encendida con sillón blanco" },
+  { src: "/images/aparador-y-comedor.webp", title: "Aparador y comedor", width: 800, height: 1200, category: "interiores", alt: "Aparador con vajilla y mesa pequeña con flores amarillas" },
+  { src: "/images/living-con-vista-al-mar.webp", title: "Living con vista al mar", width: 1200, height: 800, category: "interiores", alt: "Living con mesa ratona de madera y ventanales frente a la costa" },
+  { src: "/images/camino-hacia-el-faro.webp", title: "Camino hacia el faro", width: 1200, height: 800, category: "costa", alt: "Camino de arena con un auto y el faro de Punta Palmar al fondo" },
+  { src: "/images/porton-de-acceso.webp", title: "Portón de acceso", width: 1200, height: 800, category: "costa", alt: "Persona abriendo un portón de madera junto a un auto en el camino de acceso" },
+];

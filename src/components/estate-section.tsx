@@ -33,9 +33,19 @@ export function EstateSection() {
             Independencia total y tranquilidad absoluta.
           </h2>
           <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
-            Ubicada dentro de una estancia oceánica privada, a pocos pasos de la
-            playa y lejos del ruido del pueblo. Pensada para quienes buscan
-            descanso y un contacto auténtico con el entorno.
+            Un paraíso natural sobre la costa atlántica de Uruguay. Construida
+            en la década de 1950, la casa conserva el clima de aventura y de
+            refugio del mundo de sus pioneros: amplia y rústica, con ambientes
+            cómodos y acogedores, aloja hasta 11 personas en siete dormitorios
+            (cuatro pequeños y tres grandes) y cuatro baños.
+          </p>
+          <p className="mt-4 text-sm font-normal leading-relaxed text-black/85 md:text-base">
+            El living-comedor, con enormes ventanales, ofrece una vista
+            imponente al océano, las rocas y la playa. Los huéspedes tienen
+            acceso a toda la casa y a la playa de la Viuda, desde donde se
+            puede caminar hasta Punta del Diablo, un pueblo de pescadores con
+            sus calles, restaurantes, pescado y mejillones frescos y
+            supermercado.
           </p>
 
           <ul className="mt-10 space-y-5">

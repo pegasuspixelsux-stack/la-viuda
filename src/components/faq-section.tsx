@@ -31,6 +31,14 @@ const faqs: Faq[] = [
     a: "El uso exclusivo de toda la estancia, con servicio diario opcional de limpieza de las áreas comunes.",
   },
   {
+    q: "¿Se puede llegar sin auto?",
+    a: "No, se llega exclusivamente en auto. Desde la Ruta 9 hasta Punta Palmar son 5 km de camino de tierra y arena entre los montes.",
+  },
+  {
+    q: "¿Hay servicios con costo adicional?",
+    a: "Algunos servicios se ofrecen con un costo adicional. El personal de la casa permanece en el perímetro de la propiedad y el anfitrión está disponible por teléfono para cualquier necesidad.",
+  },
+  {
     q: "¿Hay internet y electricidad?",
     a: "Sí. Paneles solares con banco de baterías y motor auxiliar de respaldo, y red wifi gratuita en toda la casa.",
   },

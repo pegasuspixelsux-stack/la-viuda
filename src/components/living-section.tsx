@@ -3,9 +3,9 @@ import { Flame } from "lucide-react";
 import { ParallaxImage } from "@/components/primitives/parallax-image";
 import { Reveal } from "@/components/primitives/reveal";
 
-// Coastal living room with large windows (Unsplash, free licence).
+// Salón con chimenea a leña.
 const LIVING_IMAGE =
-  "https://images.unsplash.com/photo-1785962019598-2c71b10357b9?q=80&w=1400&auto=format&fit=crop";
+  "/images/chimenea-a-lena.webp";
 
 export function LivingSection() {
   return (
@@ -34,7 +34,7 @@ export function LivingSection() {
         <Reveal delay={0.08}>
           <ParallaxImage
             src={LIVING_IMAGE}
-            alt="Salón comedor con grandes ventanales abiertos al océano"
+            alt="Salón con chimenea a leña y sillones de lectura"
             className="aspect-[5/4]"
           />
         </Reveal>

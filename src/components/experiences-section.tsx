@@ -20,7 +20,6 @@ type Experience = {
   alt: string;
 };
 
-// Images: Unsplash, free licence — placeholders for commissioned photography.
 const experiences: Experience[] = [
   {
     icon: Compass,
@@ -28,8 +27,8 @@ const experiences: Experience[] = [
     detail:
       "Mil hectáreas para recorrer a caballo, con criollos mansos aptos para todos los niveles.",
     image:
-      "https://images.unsplash.com/photo-1539073117231-a9a7a4a46fe1?q=80&w=1100&auto=format&fit=crop",
-    alt: "Caballos en la orilla del mar",
+      "/images/cabalgata-junto-al-mar.webp",
+    alt: "Cabalgata por la orilla del mar",
   },
   {
     icon: Footprints,
@@ -37,8 +36,8 @@ const experiences: Experience[] = [
     detail:
       "El sendero de la Playa de la Viuda hasta Punta del Diablo, o el monte y las dunas hacia el otro lado.",
     image:
-      "https://images.unsplash.com/photo-1747846722182-a82613dbd2f4?q=80&w=1100&auto=format&fit=crop",
-    alt: "Playa de arena abierta en Punta del Diablo",
+      "/images/caminata-por-la-playa.webp",
+    alt: "Caminante en una playa de arena abierta",
   },
   {
     icon: Waves,
@@ -46,8 +45,8 @@ const experiences: Experience[] = [
     detail:
       "Olas todo el año en una de las mejores costas de surf del país, sobre arena y roca.",
     image:
-      "https://images.unsplash.com/photo-1626530562079-cbd42d351e5f?q=80&w=1100&auto=format&fit=crop",
-    alt: "Surfistas entre las olas en Punta del Diablo",
+      "/images/surf-en-la-orilla.webp",
+    alt: "Surfista entrando al mar con su tabla",
   },
   {
     icon: Sun,
@@ -55,8 +54,8 @@ const experiences: Experience[] = [
     detail:
       "Una pausa para el cuerpo y la mente, con vista al océano y aire salino.",
     image:
-      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1100&auto=format&fit=crop",
-    alt: "Práctica de yoga frente al mar",
+      "/images/vista-al-oceano.webp",
+    alt: "Vista al océano entre agaves y flores rojas",
   },
   {
     icon: Shell,
@@ -64,7 +63,7 @@ const experiences: Experience[] = [
     detail:
       "En la bajamar aparecen pozos de marea, lobos marinos y un ecosistema costero para explorar.",
     image:
-      "https://images.unsplash.com/photo-1747847219841-110625066120?q=80&w=1100&auto=format&fit=crop",
+      "/images/rocas-al-atardecer.webp",
     alt: "Rocas y pozos de marea sobre la costa atlántica",
   },
   {
@@ -73,8 +72,8 @@ const experiences: Experience[] = [
     detail:
       "Corvina negra, sargo y corvina blanca, frente a la casa, durante todo el año.",
     image:
-      "https://images.unsplash.com/photo-1673372866999-ef45dc825a84?q=80&w=1100&auto=format&fit=crop",
-    alt: "Costa rocosa de Punta del Diablo al atardecer",
+      "/images/pesca-frente-a-las-olas.webp",
+    alt: "Pescador frente a las olas en la costa",
   },
 ];
 

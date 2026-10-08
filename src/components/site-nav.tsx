@@ -30,6 +30,7 @@ const links = [
     children: [
       { href: "#experiencias", label: "Al Aire Libre" },
       { href: "#galeria", label: "La Casa y su Costa" },
+      { href: "#fotos", label: "Galería de Fotos" },
       { href: "#ubicacion", label: "Ubicación" },
     ],
   },
@@ -40,6 +41,7 @@ const links = [
       { href: "#cocina", label: "Cocina" },
       { href: "#energia", label: "Energía y Conexión" },
       { href: "#banos", label: "Baños y Cuidado" },
+      { href: "#comodidades-lista", label: "Todas las Comodidades" },
     ],
   },
   { href: "#faq", label: "FAQ" },
@@ -49,6 +51,7 @@ const links = [
     children: [
       { href: "#disponibilidad", label: "Disponibilidad" },
       { href: "#reservar", label: "Reserva Directa" },
+      { href: "#politicas", label: "Políticas y Reglas" },
     ],
   },
 ];

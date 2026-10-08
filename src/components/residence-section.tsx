@@ -3,9 +3,9 @@ import { House, Sun, Waves } from "lucide-react";
 import { ParallaxImage } from "@/components/primitives/parallax-image";
 import { Reveal } from "@/components/primitives/reveal";
 
-// Interior con ventanales al Atlántico al atardecer (Unsplash, free licence).
+// Interior con ventanales al Atlántico al atardecer.
 const RESIDENCE_IMAGE =
-  "https://images.unsplash.com/photo-1774423864869-702b21c2490a?q=80&w=1400&auto=format&fit=crop";
+  "/images/living-al-atardecer.webp";
 
 const points = [
   {

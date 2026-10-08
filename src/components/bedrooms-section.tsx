@@ -13,13 +13,12 @@ import { Reveal } from "@/components/primitives/reveal";
 
 type Bedroom = { name: string; detail: string; image: string; alt: string };
 
-// Images: Unsplash, free licence — placeholders for real room photography.
 const bedrooms: Bedroom[] = [
   {
     name: "La Viuda",
     detail: "Habitación en esquina, cama king y piso de madera.",
     image:
-      "https://images.unsplash.com/photo-1774437290582-1e859402001f?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-con-chimenea.webp",
     alt: "Dormitorio en esquina con piso de madera y luz natural",
   },
   {
@@ -27,21 +26,21 @@ const bedrooms: Bedroom[] = [
     detail:
       "Cama queen, ambiente contiguo con cama individual y baño en suite.",
     image:
-      "https://images.unsplash.com/photo-1635315891380-f70330a5b41b?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-con-vista-al-mar.webp",
     alt: "Suite luminosa con cama amplia y ropa de cama blanca",
   },
   {
     name: "La Pequeña",
     detail: "Una cama individual, recogida y tranquila.",
     image:
-      "https://images.unsplash.com/photo-1586310520462-658e93388399?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-individual.webp",
     alt: "Dormitorio minimalista con cama individual y madera clara",
   },
   {
     name: "Los Amigos",
     detail: "Habitación amplia, cama king o dos camas individuales.",
     image:
-      "https://images.unsplash.com/photo-1770414173168-f6c666501225?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-con-dos-camas.webp",
     alt: "Habitación amplia y luminosa de estilo costero",
   },
   {
@@ -49,14 +48,14 @@ const bedrooms: Bedroom[] = [
     detail:
       "Gran habitación en esquina: cama king e individual, o hasta tres individuales.",
     image:
-      "https://images.unsplash.com/photo-1774437290582-1e859402001f?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-soleado.webp",
     alt: "Habitación en esquina espaciosa con luz de dos ventanas",
   },
   {
     name: "El Capitán",
     detail: "Una cama individual con una vista extraordinaria.",
     image:
-      "https://images.unsplash.com/photo-1785962019598-2c71b10357b9?q=80&w=1100&auto=format&fit=crop",
+      "/images/dormitorio-con-vista-al-campo.webp",
     alt: "Ambiente con grandes ventanales abiertos al paisaje",
   },
 ];
