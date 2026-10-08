@@ -17,46 +17,47 @@ const bedrooms: Bedroom[] = [
   {
     name: "La Viuda",
     detail: "Habitación en esquina, cama king y piso de madera.",
-    image:
-      "/images/dormitorio-con-chimenea.webp",
+    image: "/images/dormitorio-con-chimenea.webp",
     alt: "Dormitorio en esquina con piso de madera y luz natural",
   },
   {
     name: "La Suite",
     detail:
       "Cama queen, ambiente contiguo con cama individual y baño en suite.",
-    image:
-      "/images/dormitorio-con-vista-al-mar.webp",
+    image: "/images/dormitorio-con-vista-al-mar.webp",
     alt: "Suite luminosa con cama amplia y ropa de cama blanca",
   },
   {
     name: "La Pequeña",
     detail: "Una cama individual, recogida y tranquila.",
-    image:
-      "/images/dormitorio-individual.webp",
+    image: "/images/dormitorio-individual.webp",
     alt: "Dormitorio minimalista con cama individual y madera clara",
   },
   {
     name: "Del Viudo",
     detail: "Habitación amplia, cama king o dos camas individuales.",
-    image:
-      "/images/dormitorio-con-dos-camas.webp",
+    image: "/images/dormitorio-con-dos-camas.webp",
     alt: "Habitación amplia y luminosa de estilo costero",
   },
   {
     name: "El Piloto",
     detail:
       "Gran habitación en esquina: cama king e individual, o hasta tres individuales.",
-    image:
-      "/images/dormitorio-soleado.webp",
+    image: "/images/dormitorio-soleado.webp",
     alt: "Habitación en esquina espaciosa con luz de dos ventanas",
   },
   {
     name: "El Capitán",
     detail: "Una cama individual con una vista extraordinaria.",
-    image:
-      "/images/dormitorio-con-vista-al-campo.webp",
+    image: "/images/dormitorio-con-vista-al-campo.webp",
     alt: "Ambiente con grandes ventanales abiertos al paisaje",
+  },
+  {
+    name: "La Oceánica",
+    detail:
+      "Habitación luminosa con dos ventanas frente al océano y las rocas.",
+    image: "/images/oceanica.webp",
+    alt: "Cama de día con almohadones junto a dos ventanas con vista al océano y las rocas",
   },
 ];
 
