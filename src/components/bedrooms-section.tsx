@@ -28,7 +28,7 @@ const bedrooms: Bedroom[] = [
     alt: "Suite luminosa con cama amplia y ropa de cama blanca",
   },
   {
-    name: "El Faro Pequeño",
+    name: "Del Faro Pequeño",
     detail: "Una cama individual, recogida y tranquila.",
     image: "/images/dormitorio-individual.webp",
     alt: "Dormitorio minimalista con cama individual y madera clara",
