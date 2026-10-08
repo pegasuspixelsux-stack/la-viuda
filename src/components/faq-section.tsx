@@ -39,8 +39,8 @@ const faqs: Faq[] = [
     a: "Algunos servicios se ofrecen con un costo adicional. El personal de la casa permanece en el perímetro de la propiedad y el anfitrión está disponible por teléfono para cualquier necesidad.",
   },
   {
-    q: "¿Hay internet y electricidad?",
-    a: "Sí. Paneles solares con banco de baterías y motor auxiliar de respaldo, y red wifi gratuita en toda la casa.",
+    q: "¿Hay wifi?",
+    a: "Sí, red wifi gratuita en toda la casa.",
   },
   {
     q: "¿Hay que llevar ropa de cama o toallas?",

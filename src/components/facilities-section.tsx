@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Bath, UtensilsCrossed, Zap } from "lucide-react";
+import { Bath, Trees, UtensilsCrossed } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Reveal } from "@/components/primitives/reveal";
@@ -19,26 +19,23 @@ const facilities: Facility[] = [
     icon: UtensilsCrossed,
     title: "Cocina",
     body: "Totalmente equipada: dos heladeras, cocina a gas de cuatro hornallas con horno, y vajilla y utensilios para doce.",
-    image:
-      "/images/cocina-equipada.webp",
+    image: "/images/cocina-equipada.webp",
     alt: "Cocina equipada con isla y mesada de madera",
   },
   {
-    id: "energia",
-    icon: Zap,
-    title: "Energía y conexión",
-    body: "Paneles solares, banco de baterías y motor auxiliar para electricidad confiable, incluso en días nublados. Red wifi gratuita.",
-    image:
-      "/images/cielo-de-fuego-sobre-la-casa.webp",
-    alt: "La casa al atardecer, con el jardín frente al océano",
+    id: "naturaleza",
+    icon: Trees,
+    title: "Al aire libre",
+    body: "Conectate con la naturaleza: una playa virgen, sin tocar, a pasos de la casa. Dunas, rocas y mar abierto para caminar, nadar y perderse en el paisaje.",
+    image: "/images/caminata-por-la-playa.webp",
+    alt: "Caminante solo por una playa virgen de arena abierta",
   },
   {
     id: "banos",
     icon: Bath,
     title: "Baños y cuidado",
     body: "Cuatro baños con ducha, juegos completos de toallas y toallones de playa, y asistencia diaria de limpieza.",
-    image:
-      "/images/bano-con-vanitory.webp",
+    image: "/images/bano-con-vanitory.webp",
     alt: "Baño con vanitory y luz natural",
   },
 ];

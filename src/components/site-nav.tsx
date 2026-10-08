@@ -39,7 +39,7 @@ const links = [
     label: "Servicios",
     children: [
       { href: "#cocina", label: "Cocina" },
-      { href: "#energia", label: "Energía y Conexión" },
+      { href: "#naturaleza", label: "Al Aire Libre y Naturaleza" },
       { href: "#banos", label: "Baños y Cuidado" },
       { href: "#comodidades-lista", label: "Todas las Comodidades" },
     ],
