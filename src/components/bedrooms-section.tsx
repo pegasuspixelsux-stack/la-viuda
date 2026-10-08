@@ -37,14 +37,14 @@ const bedrooms: Bedroom[] = [
     alt: "Dormitorio minimalista con cama individual y madera clara",
   },
   {
-    name: "Los Amigos",
+    name: "Del Viudo",
     detail: "Habitación amplia, cama king o dos camas individuales.",
     image:
       "/images/dormitorio-con-dos-camas.webp",
     alt: "Habitación amplia y luminosa de estilo costero",
   },
   {
-    name: "La Familia",
+    name: "El Piloto",
     detail:
       "Gran habitación en esquina: cama king e individual, o hasta tres individuales.",
     image:
