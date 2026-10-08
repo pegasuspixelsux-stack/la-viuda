@@ -1,5 +1,5 @@
 export type PhotoCategory =
-  "interiores" | "dormitorios" | "cocina-banos" | "jardin" | "costa";
+  "interiores" | "dormitorios" | "cocina" | "jardin" | "costa";
 
 export type Photo = {
   src: string;
@@ -15,36 +15,12 @@ export const photoCategories: { id: PhotoCategory | "todas"; label: string }[] =
     { id: "todas", label: "Todas" },
     { id: "interiores", label: "Interiores" },
     { id: "dormitorios", label: "Dormitorios" },
-    { id: "cocina-banos", label: "Cocina y baños" },
+    { id: "cocina", label: "Cocina" },
     { id: "jardin", label: "Jardín" },
     { id: "costa", label: "Playa y costa" },
   ];
 
 export const photos: Photo[] = [
-  {
-    src: "/images/oceanica.webp",
-    title: "La Oceánica",
-    width: 1200,
-    height: 1090,
-    category: "dormitorios",
-    alt: "Cama de día con almohadones junto a dos ventanas con vista al océano y las rocas",
-  },
-  {
-    src: "/images/bano-con-bide.webp",
-    title: "Baño con bidé",
-    width: 1200,
-    height: 800,
-    category: "cocina-banos",
-    alt: "Baño con lavabo de pie, bidé e inodoro y azulejos blancos",
-  },
-  {
-    src: "/images/bano-con-vanitory.webp",
-    title: "Baño con vanitory",
-    width: 900,
-    height: 1200,
-    category: "cocina-banos",
-    alt: "Baño con vanitory de madera, espejo y ventana",
-  },
   {
     src: "/images/rocas-al-atardecer.webp",
     title: "Rocas al atardecer",
@@ -338,7 +314,7 @@ export const photos: Photo[] = [
     title: "Cocina equipada",
     width: 1200,
     height: 800,
-    category: "cocina-banos",
+    category: "cocina",
     alt: "Cocina con isla de madera, cocina a gas, heladera y alacenas",
   },
   {
