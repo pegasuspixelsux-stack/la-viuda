@@ -22,7 +22,11 @@ export type BlockedDate = {
   createdAt: string;
 };
 
-export type ReservationStatus = "pending" | "approved" | "rejected";
+export type ReservationStatus =
+  | "pending"
+  | "approved"
+  | "rejected"
+  | "cancelled";
 
 export type Reservation = {
   id: string;
@@ -38,6 +42,8 @@ export type Reservation = {
   status: ReservationStatus;
   createdAt: string;
   decidedAt: string | null;
+  /** Set when an approved reservation is cancelled; the record is kept for audit. */
+  updatedAt?: string | null;
 };
 
 export type LeadStatus = "new" | "contacted" | "closed";

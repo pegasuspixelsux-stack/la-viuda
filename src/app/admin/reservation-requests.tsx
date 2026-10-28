@@ -2,18 +2,21 @@ import { hasConflict } from "@/lib/db/availability";
 import { reservations, type ReservationStatus } from "@/lib/db/schema";
 import { formatRange } from "@/lib/calendar";
 import { decideReservation } from "./calendario/actions";
+import { CancelReservationButton } from "./cancel-reservation-button";
 import { MarkRead } from "./mark-read";
 
 const STATUS_LABEL: Record<ReservationStatus, string> = {
   pending: "Pendiente",
-  approved: "Aprobada",
+  approved: "Confirmada",
   rejected: "Rechazada",
+  cancelled: "Cancelada",
 };
 
 const STATUS_STYLE: Record<ReservationStatus, string> = {
   pending: "bg-luxury-gold text-white",
   approved: "bg-luxury-ink text-white",
   rejected: "bg-black/10 text-black/70",
+  cancelled: "bg-red-100 text-red-700",
 };
 
 export async function ReservationRequests() {
@@ -122,6 +125,11 @@ export async function ReservationRequests() {
                       Rechazar
                     </button>
                   </form>
+                </div>
+              ) : null}
+              {reservation.status === "approved" ? (
+                <div className="mt-3">
+                  <CancelReservationButton id={reservation.id} />
                 </div>
               ) : null}
             </li>

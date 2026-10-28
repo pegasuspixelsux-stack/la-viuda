@@ -73,3 +73,19 @@ export async function markReservationsRead(): Promise<void> {
   await Promise.all(unread.map((r) => reservations.update(r.id, { isRead: true })));
   if (unread.length > 0) revalidatePath("/admin");
 }
+
+/**
+ * Cancels an approved reservation. The record is kept (status "cancelled") and
+ * stops blocking the calendar, since only approved reservations do.
+ */
+export async function cancelReservation(id: string): Promise<void> {
+  await requireAdmin();
+  const reservation = await reservations.find((r) => r.id === id);
+  if (!reservation || reservation.status !== "approved") return;
+  await reservations.update(id, {
+    status: "cancelled",
+    updatedAt: new Date().toISOString(),
+  });
+  revalidatePath("/admin/calendario");
+  revalidatePath("/admin");
+}
