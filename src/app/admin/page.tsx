@@ -28,7 +28,7 @@ export default async function AdminHome({
   return (
     <div>
       <h1 className="font-serif text-3xl font-normal text-luxury-ink">
-        Panel de control
+        Sistema de Reservas
       </h1>
       <p className="mt-2 max-w-2xl text-sm font-normal leading-relaxed text-black/85">
         Gestión del calendario y de las solicitudes de reserva. Los KPIs de
