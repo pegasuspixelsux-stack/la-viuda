@@ -1,3 +1,4 @@
+import { currentMonthParam } from "@/lib/calendar";
 import { blockedDates, leads, reservations, users } from "@/lib/db/schema";
 import { CalendarView } from "./calendario/calendar-view";
 import { ReservationRequests } from "./reservation-requests";
@@ -17,9 +18,15 @@ export default async function AdminHome({
   const pending = allReservations.filter((r) => r.status === "pending").length;
   const approved = allReservations.filter((r) => r.status === "approved").length;
 
+  const thisMonth = currentMonthParam();
+  const bookingsThisMonth = allReservations.filter(
+    (r) => r.status === "approved" && r.checkIn.startsWith(thisMonth),
+  ).length;
+
   const cards = [
     { label: "Solicitudes pendientes", value: pending, highlight: pending > 0 },
     { label: "Reservas confirmadas", value: approved, highlight: false },
+    { label: "Reservas este mes", value: bookingsThisMonth, highlight: false },
     { label: "Fechas bloqueadas", value: allBlocked.length, highlight: false },
     { label: "Leads", value: allLeads.length, highlight: false },
     { label: "Usuarios", value: allUsers.length, highlight: false },
