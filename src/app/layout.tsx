@@ -4,7 +4,6 @@ import "./globals.css";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
   display: "swap",
@@ -12,13 +11,12 @@ const playfair = Playfair_Display({
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
   variable: "--font-montserrat",
   display: "swap",
 });
 
 // TODO: point this at the real production domain before launch.
-const siteUrl = "https://lacasadelaviuda.uy";
+const siteUrl = "https://lacasadelaviuda.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

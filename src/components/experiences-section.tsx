@@ -25,7 +25,7 @@ const experiences: Experience[] = [
     icon: Compass,
     title: "Cabalgatas",
     detail:
-      "Mil hectáreas para recorrer a caballo, con criollos mansos aptos para todos los niveles.",
+      "Seiscientas hectáreas para recorrer a caballo, con criollos mansos aptos para todos los niveles.",
     image:
       "/images/cabalgata-junto-al-mar.webp",
     alt: "Cabalgata por la orilla del mar",

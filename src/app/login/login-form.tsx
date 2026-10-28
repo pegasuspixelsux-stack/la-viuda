@@ -1,8 +1,15 @@
 "use client";
 
-import { useActionState } from "react";
+import {
+  getAuth,
+  inMemoryPersistence,
+  setPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useState, useTransition } from "react";
 
-import { login, type LoginState } from "@/lib/auth/actions";
+import { loginWithIdToken } from "@/lib/auth/actions";
+import { firebaseApp } from "@/lib/firebase";
 
 const fieldClass =
   "w-full border border-luxury-gold/30 bg-luxury-dark px-4 py-3 text-sm font-normal text-luxury-ink " +
@@ -12,16 +19,42 @@ const labelClass =
   "mb-1.5 block text-[0.6rem] font-medium uppercase tracking-[0.18em] text-luxury-sand/88";
 
 export function LoginForm({ next }: { next?: string }) {
-  const [state, formAction, pending] = useActionState<LoginState, FormData>(
-    login,
-    null,
-  );
+  const [error, setError] = useState<string | null>(null);
+  const [pending, startTransition] = useTransition();
+
+  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const email = String(data.get("email") ?? "").trim();
+    const password = String(data.get("password") ?? "");
+    setError(null);
+
+    startTransition(async () => {
+      try {
+        const auth = getAuth(firebaseApp);
+        // The server cookie is the session; don't keep a second one in the browser.
+        await setPersistence(auth, inMemoryPersistence);
+        const { user } = await signInWithEmailAndPassword(auth, email, password);
+        const result = await loginWithIdToken(
+          await user.getIdToken(),
+          next ?? "",
+        );
+        if (result?.error) setError(result.error);
+      } catch (e) {
+        const code = (e as { code?: string }).code ?? "";
+        setError(
+          code === "auth/too-many-requests"
+            ? "Demasiados intentos. Probá más tarde."
+            : code.startsWith("auth/")
+              ? "Correo o contraseña incorrectos."
+              : "No pudimos iniciar sesión. Intentá de nuevo.",
+        );
+      }
+    });
+  }
 
   return (
-    <form
-      action={formAction}
-      className="border border-luxury-gold/25 bg-luxury-charcoal p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
-    >
+    <form onSubmit={onSubmit}>
       <p className="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-luxury-gold">
         Acceso al panel
       </p>
@@ -60,12 +93,12 @@ export function LoginForm({ next }: { next?: string }) {
         />
       </div>
 
-      {state?.error ? (
+      {error ? (
         <p
           role="alert"
           className="mt-4 border-l-2 border-red-400 bg-red-50 px-3 py-2 text-[0.8rem] font-normal text-red-800"
         >
-          {state.error}
+          {error}
         </p>
       ) : null}
 
@@ -77,19 +110,6 @@ export function LoginForm({ next }: { next?: string }) {
         {pending ? "Ingresando…" : "Ingresar"}
       </button>
 
-      <div className="mt-5 border-t border-luxury-gold/15 pt-4 text-[0.68rem] font-normal leading-relaxed text-black/80">
-        <p className="mb-1 text-[0.56rem] font-medium uppercase tracking-[0.16em] text-luxury-sand/60">
-          Cuentas de demostración
-        </p>
-        <p>
-          Admin — <code className="text-luxury-ink">test@laviuda.com</code> /{" "}
-          <code className="text-luxury-ink">test12345</code>
-        </p>
-        <p>
-          Cliente — <code className="text-luxury-ink">cliente@ejemplo.com</code> /{" "}
-          <code className="text-luxury-ink">cliente1234</code>
-        </p>
-      </div>
     </form>
   );
 }

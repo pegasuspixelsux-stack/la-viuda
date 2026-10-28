@@ -4,11 +4,14 @@ import { BookingForm } from "@/components/booking-form";
 import { CtaButton } from "@/components/primitives/cta-button";
 import { Reveal } from "@/components/primitives/reveal";
 
-// TODO: confirm the concierge WhatsApp number and inbox before launch.
-const WHATSAPP_URL = "https://wa.me/59899156367";
+import { getSettings } from "@/lib/settings";
+
 const CONCIERGE_EMAIL = "mailto:reservas@lacasadelaviuda.uy";
 
-export function ReserveSection() {
+export async function ReserveSection() {
+  const { whatsapp } = await getSettings();
+  const WHATSAPP_URL = `https://wa.me/${whatsapp}`;
+
   return (
     <section
       id="reservar"

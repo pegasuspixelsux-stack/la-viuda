@@ -1,6 +1,9 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+
 /**
  * Minimal file-backed store. One JSON file per collection under `data/`.
  * Single Node process only: writes to a collection are serialised through an
@@ -62,7 +65,53 @@ export type Collection<T extends Row> = {
   remove(id: string): Promise<boolean>;
 };
 
+/**
+ * Firestore backend, used when FIREBASE_SERVICE_ACCOUNT (service-account JSON)
+ * is set. Uses the Admin SDK, so Firestore rules can stay fully locked.
+ */
+function firestore() {
+  const app = getApps()[0] ?? initializeApp({
+    credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT!)),
+  });
+  return getFirestore(app);
+}
+
+function firestoreCollection<T extends Row>(name: string): Collection<T> {
+  const ref = () => firestore().collection(name);
+  const all = async () =>
+    (await ref().get()).docs.map((doc) => doc.data() as T);
+
+  return {
+    all,
+
+    async find(predicate) {
+      return (await all()).find(predicate) ?? null;
+    },
+
+    async insert(row) {
+      await ref().doc(row.id).set(row);
+      return row;
+    },
+
+    async update(id, patch) {
+      const doc = ref().doc(id);
+      if (!(await doc.get()).exists) return null;
+      await doc.update(patch as Record<string, unknown>);
+      return (await doc.get()).data() as T;
+    },
+
+    async remove(id) {
+      const doc = ref().doc(id);
+      if (!(await doc.get()).exists) return false;
+      await doc.delete();
+      return true;
+    },
+  };
+}
+
 export function collection<T extends Row>(name: string): Collection<T> {
+  if (process.env.FIREBASE_SERVICE_ACCOUNT) return firestoreCollection<T>(name);
+
   return {
     all: () => serialise(name, () => readFile<T>(name)),
 

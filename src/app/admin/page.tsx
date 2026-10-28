@@ -1,8 +1,12 @@
-import Link from "next/link";
-
 import { blockedDates, leads, reservations, users } from "@/lib/db/schema";
+import { CalendarView } from "./calendario/calendar-view";
+import { ReservationRequests } from "./reservation-requests";
 
-export default async function AdminHome() {
+export default async function AdminHome({
+  searchParams,
+}: {
+  searchParams: Promise<{ month?: string }>;
+}) {
   const [allUsers, allLeads, allReservations, allBlocked] = await Promise.all([
     users.all(),
     leads.all(),
@@ -55,12 +59,13 @@ export default async function AdminHome() {
         ))}
       </dl>
 
-      <Link
-        href="/admin/calendario"
-        className="mt-8 inline-block border border-luxury-gold/40 px-5 py-2.5 text-[0.62rem] font-medium uppercase tracking-[0.18em] text-luxury-gold transition-colors hover:bg-luxury-gold hover:text-white"
-      >
-        Abrir calendario
-      </Link>
+      <div className="mt-10">
+        <ReservationRequests />
+      </div>
+
+      <div className="mt-14 border-t border-luxury-gold/20 pt-10">
+        <CalendarView searchParams={searchParams} />
+      </div>
     </div>
   );
 }

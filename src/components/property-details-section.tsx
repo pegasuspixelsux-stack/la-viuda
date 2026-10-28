@@ -21,7 +21,7 @@ const columns: Column[] = [
       "Vistas panorámicas al océano y a la playa.",
       "Siete habitaciones, hasta once huéspedes.",
       "Amplio living-comedor con chimenea a leña.",
-      "Cocina equipada: dos heladeras y cocina a gas de cuatro hornallas.",
+      "Cocina equipada: dos heladeras y cocina de cuatro hornallas.",
       "Cuatro baños con juegos completos de toallas y toallones de playa.",
     ],
   },

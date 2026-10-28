@@ -1,6 +1,5 @@
 import { randomUUID } from "node:crypto";
 
-import { hashPassword } from "@/lib/auth/password";
 import { collection } from "@/lib/db/store";
 
 export type Role = "admin" | "client";
@@ -10,7 +9,6 @@ export type User = {
   email: string;
   name: string;
   role: Role;
-  passwordHash: string;
   createdAt: string;
 };
 
@@ -56,7 +54,22 @@ export type Lead = {
   respondedAt: string | null;
 };
 
+/** Single-row site configuration (id is always "site"). */
+export type SiteSettings = {
+  id: "site";
+  /** WhatsApp number, digits only with country code, e.g. 59899156367. */
+  whatsapp: string;
+  phone: string;
+  address: string;
+  hours: string;
+  /** Handle or full URL. */
+  instagram: string;
+  facebook: string;
+  updatedAt: string;
+};
+
 export const users = collection<User>("users");
+export const settings = collection<SiteSettings>("settings");
 export const blockedDates = collection<BlockedDate>("blocked-dates");
 export const reservations = collection<Reservation>("reservations");
 export const leads = collection<Lead>("leads");
@@ -64,8 +77,10 @@ export const leads = collection<Lead>("leads");
 let seeded = false;
 
 /**
- * Creates the initial admin (and a demo client) the first time the app runs
- * against an empty store. Idempotent.
+ * Creates the initial admin record the first time the app runs against an
+ * empty store. Sign-in is handled by Firebase Auth, so this only grants the
+ * admin role to SEED_ADMIN_EMAIL; create that account in the Firebase console.
+ * Idempotent.
  */
 export async function ensureSeeded(): Promise<void> {
   if (seeded) return;
@@ -73,31 +88,17 @@ export async function ensureSeeded(): Promise<void> {
 
   if ((await users.all()).length > 0) return;
 
-  const adminEmail = process.env.SEED_ADMIN_EMAIL || "test@laviuda.com";
-  const adminPassword = process.env.SEED_ADMIN_PASSWORD || "test12345";
-  const now = new Date().toISOString();
+  const adminEmail = process.env.SEED_ADMIN_EMAIL;
+  if (!adminEmail) {
+    console.warn("[auth] No users and SEED_ADMIN_EMAIL unset — nobody can sign in.");
+    return;
+  }
 
   await users.insert({
     id: "admin",
     email: adminEmail,
     name: "Administración",
     role: "admin",
-    passwordHash: hashPassword(adminPassword),
-    createdAt: now,
+    createdAt: new Date().toISOString(),
   });
-
-  await users.insert({
-    id: randomUUID(),
-    email: "cliente@ejemplo.com",
-    name: "Cliente demo",
-    role: "client",
-    passwordHash: hashPassword("cliente1234"),
-    createdAt: now,
-  });
-
-  console.warn(
-    `[auth] Store seeded — admin ${adminEmail} / ` +
-      `${process.env.SEED_ADMIN_PASSWORD ? "(SEED_ADMIN_PASSWORD)" : "test12345"}. ` +
-      "Change this password before going live.",
-  );
 }

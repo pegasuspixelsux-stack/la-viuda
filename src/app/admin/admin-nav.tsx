@@ -8,8 +8,8 @@ import { useState } from "react";
 import { logout } from "@/lib/auth/actions";
 
 const NAV = [
-  { href: "/admin", label: "Panel", exact: true },
-  { href: "/admin/calendario", label: "Calendario", exact: false },
+  { href: "/admin", label: "Panel y calendario", exact: true },
+  { href: "/admin/configuracion", label: "Configuración", exact: false },
 ];
 
 function isActive(pathname: string, href: string, exact: boolean) {

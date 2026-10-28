@@ -1,13 +1,16 @@
 import { Reveal } from "@/components/primitives/reveal";
+import { getSettings } from "@/lib/settings";
 
-const facts = [
-  { term: "Dirección", detail: "Ruta 9, km 295,7" },
-  { term: "Desde Montevideo", detail: "245 km — cerca de 3 h 30 en auto" },
-  { term: "Al pueblo", detail: "2,5 km — a pie por la playa" },
-  { term: "Entorno", detail: "Estancia privada, playa y bosque nativo" },
-];
+export async function LocationSection() {
+  const { address, hours } = await getSettings();
+  const facts = [
+    { term: "Dirección", detail: address },
+    { term: "Horarios", detail: hours },
+    { term: "Desde Montevideo", detail: "245 km — cerca de 3 h 30 en auto" },
+    { term: "Al pueblo", detail: "2,5 km — a pie por la playa o 3 km en auto" },
+    { term: "Entorno", detail: "Estancia privada, playa y bosque nativo" },
+  ];
 
-export function LocationSection() {
   return (
     <section
       id="ubicacion"

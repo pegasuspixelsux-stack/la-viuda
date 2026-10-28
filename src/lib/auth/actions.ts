@@ -8,30 +8,35 @@ import {
   createSessionToken,
   sessionCookieOptions,
 } from "@/lib/auth/session";
-import { verifyPassword } from "@/lib/auth/password";
 import { ensureSeeded, users } from "@/lib/db/schema";
+import { adminAuth } from "@/lib/firebase-admin";
 
 export type LoginState = { error: string } | null;
 
-export async function login(
-  _prev: LoginState,
-  formData: FormData,
+/**
+ * Exchanges a Firebase ID token (from the client sign-in) for our session
+ * cookie. Firebase proves who the person is; the `users` collection decides
+ * whether they may enter and with which role, so open Firebase sign-ups never
+ * grant access on their own.
+ */
+export async function loginWithIdToken(
+  idToken: string,
+  next: string,
 ): Promise<LoginState> {
   await ensureSeeded();
 
-  const email = String(formData.get("email") ?? "")
-    .trim()
-    .toLowerCase();
-  const password = String(formData.get("password") ?? "");
-  const next = String(formData.get("next") ?? "");
-
-  if (!email || !password) {
-    return { error: "Ingresá tu correo y contraseña." };
+  let email: string | undefined;
+  try {
+    email = (await adminAuth().verifyIdToken(idToken)).email?.toLowerCase();
+  } catch {
+    return { error: "No pudimos verificar tu sesión. Intentá de nuevo." };
   }
 
-  const user = await users.find((u) => u.email.toLowerCase() === email);
-  if (!user || !verifyPassword(password, user.passwordHash)) {
-    return { error: "Correo o contraseña incorrectos." };
+  const user = email
+    ? await users.find((u) => u.email.toLowerCase() === email)
+    : null;
+  if (!user) {
+    return { error: "Esta cuenta no tiene acceso al panel." };
   }
 
   const token = await createSessionToken({

@@ -326,14 +326,6 @@ export const photos: Photo[] = [
     alt: "Living con sofá, mesa ratona y ventanales al atardecer",
   },
   {
-    src: "/images/living-y-escalera.webp",
-    title: "Living y escalera",
-    width: 1200,
-    height: 900,
-    category: "interiores",
-    alt: "Living amplio con sillones, escalera de madera y techo con vigas",
-  },
-  {
     src: "/images/comedor-frente-al-mar.webp",
     title: "Comedor frente al mar",
     width: 1200,

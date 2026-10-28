@@ -1,10 +1,10 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
-import { useId, useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
+import { useActionState, useId, useState } from "react";
+import type { ChangeEvent } from "react";
 
-const INBOX = "reservas@lacasadelaviuda.uy";
+import { submitInquiry } from "@/lib/inquiry/actions";
 
 // Every field renders with this exact class so the column stays perfectly
 // aligned — same width, padding, border and focus ring everywhere.
@@ -46,11 +46,13 @@ const TEXT_FIELDS: {
 // once it is focused or filled.
 function DateField({
   id,
+  name,
   label,
   value,
   onChange,
 }: {
   id: string;
+  name: string;
   label: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -65,6 +67,7 @@ function DateField({
       </label>
       <input
         id={id}
+        name={name}
         type={showNative ? "date" : "text"}
         required
         placeholder="dd / mm / aaaa"
@@ -84,52 +87,38 @@ export function BookingForm() {
   const uid = useId();
   const fieldId = (key: string) => `${uid}-${key}`;
   const [form, setForm] = useState<FormState>(EMPTY);
-  const [sent, setSent] = useState(false);
+  const [state, formAction, pending] = useActionState(submitInquiry, null);
+  const sent = state !== null && "ok" in state;
 
   const update =
     (key: FieldKey) => (event: ChangeEvent<HTMLInputElement>) => {
       setForm((current) => ({ ...current, [key]: event.target.value }));
     };
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    const subject = encodeURIComponent(`Consulta de reserva — ${form.nombre}`);
-    const body = encodeURIComponent(
-      [
-        "Hola,",
-        "",
-        "Quisiera consultar disponibilidad en La Casa de la Viuda:",
-        "",
-        `• Llegada: ${form.llegada}`,
-        `• Salida: ${form.salida}`,
-        `• Nombre: ${form.nombre}`,
-        `• Email: ${form.email}`,
-        `• Teléfono: ${form.telefono || "—"}`,
-        "",
-        "Gracias.",
-      ].join("\n"),
-    );
-    window.location.href = `mailto:${INBOX}?subject=${subject}&body=${body}`;
-    setSent(true);
-  };
-
   if (sent) {
     return (
       <div className="border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 text-center shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]">
         <Check className="mx-auto h-8 w-8 text-luxury-blue" strokeWidth={1.25} />
         <h3 className="mt-4 font-serif text-xl font-normal text-luxury-ink">
-          Consulta preparada
+          Consulta enviada
         </h3>
         <p className="mt-2 text-sm font-normal leading-relaxed text-black/85">
-          Se abrió tu cliente de correo con los datos listos para enviar a{" "}
-          {INBOX}. Te respondemos a la brevedad.
+          Recibimos tu solicitud. Te respondemos a la brevedad para confirmar
+          disponibilidad.
         </p>
+        {state && "ok" in state && state.whatsappUrl ? (
+          <a
+            href={state.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block bg-luxury-gold px-6 py-2.5 text-[0.6rem] font-medium uppercase tracking-[0.22em] text-white transition-colors duration-500 hover:bg-luxury-ink"
+          >
+            Enviar también por WhatsApp
+          </a>
+        ) : null}
         <button
           type="button"
-          onClick={() => {
-            setForm(EMPTY);
-            setSent(false);
-          }}
+          onClick={() => window.location.reload()}
           className="mt-6 border border-luxury-gold/50 px-6 py-2.5 text-[0.6rem] font-medium uppercase tracking-[0.22em] text-luxury-gold transition-colors duration-500 hover:bg-luxury-gold hover:text-luxury-dark"
         >
           Enviar otra consulta
@@ -140,7 +129,7 @@ export function BookingForm() {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      action={formAction}
       className="relative border border-luxury-gold/25 bg-luxury-charcoal p-6 sm:p-8 shadow-[0_28px_60px_-32px_rgba(27,39,48,0.32)]"
     >
       <span className="absolute right-0 top-0 bg-luxury-gold px-4 py-1 text-[0.58rem] font-medium uppercase tracking-[0.2em] text-white">
@@ -157,12 +146,14 @@ export function BookingForm() {
       <div className="mt-8 flex flex-col gap-4">
         <DateField
           id={fieldId("llegada")}
+          name="llegada"
           label="Fecha de llegada"
           value={form.llegada}
           onChange={update("llegada")}
         />
         <DateField
           id={fieldId("salida")}
+          name="salida"
           label="Fecha de salida"
           value={form.salida}
           onChange={update("salida")}
@@ -180,6 +171,7 @@ export function BookingForm() {
             </label>
             <input
               id={fieldId(key)}
+              name={key}
               type={type}
               required={required}
               autoComplete={autoComplete}
@@ -189,13 +181,45 @@ export function BookingForm() {
             />
           </div>
         ))}
+
+        <div>
+          <label htmlFor={fieldId("huespedes")} className={labelClass}>
+            Huéspedes
+          </label>
+          <input
+            id={fieldId("huespedes")}
+            name="huespedes"
+            type="number"
+            min={1}
+            max={50}
+            required
+            inputMode="numeric"
+            className={fieldClass}
+          />
+        </div>
+
+        {/* Honeypot: hidden from people, tempting to bots. */}
+        <input
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+        />
       </div>
+
+      {state && "error" in state ? (
+        <p role="alert" className="mt-4 text-sm text-red-700">
+          {state.error}
+        </p>
+      ) : null}
 
       <button
         type="submit"
+        disabled={pending}
         className="group mt-6 flex w-full items-center justify-center gap-2 bg-luxury-gold px-6 py-4 text-[0.62rem] font-medium uppercase tracking-[0.2em] text-white transition-colors duration-500 hover:bg-luxury-ink"
       >
-        Enviar consulta
+        {pending ? "Enviando…" : "Enviar consulta"}
         <ArrowRight
           className="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
           strokeWidth={1.5}
@@ -203,8 +227,8 @@ export function BookingForm() {
       </button>
 
       <p className="mt-4 text-[0.7rem] font-normal leading-relaxed text-black/85">
-        El botón abre tu cliente de correo con la consulta redactada. No se envía
-        ningún dato automáticamente.
+        Tus datos se usan solo para responder a tu consulta. La reserva no se
+        confirma hasta que te contactemos.
       </p>
     </form>
   );

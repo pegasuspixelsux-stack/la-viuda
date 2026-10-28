@@ -18,7 +18,7 @@ const facilities: Facility[] = [
     id: "cocina",
     icon: UtensilsCrossed,
     title: "Cocina",
-    body: "Totalmente equipada: dos heladeras, cocina a gas de cuatro hornallas con horno, y vajilla y utensilios para doce.",
+    body: "Totalmente equipada: dos heladeras, cocina de cuatro hornallas con horno, y vajilla y utensilios para doce.",
     image: "/images/cocina-equipada.webp",
     alt: "Cocina equipada con isla y mesada de madera",
   },
