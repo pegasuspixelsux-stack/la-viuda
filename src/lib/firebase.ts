@@ -1,7 +1,7 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
 
 // Web config is public by design; access is enforced by Firebase security rules.
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCDHbt6cXNv0nJ1toPig8nGt2IF3o4FBlg",
   authDomain: "la-viuda-ec1be.firebaseapp.com",
   projectId: "la-viuda-ec1be",

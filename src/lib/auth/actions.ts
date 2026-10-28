@@ -9,7 +9,7 @@ import {
   sessionCookieOptions,
 } from "@/lib/auth/session";
 import { ensureSeeded, users } from "@/lib/db/schema";
-import { adminAuth } from "@/lib/firebase-admin";
+import { firebaseConfig } from "@/lib/firebase";
 
 export type LoginState = { error: string } | null;
 
@@ -25,9 +25,26 @@ export async function loginWithIdToken(
 ): Promise<LoginState> {
   await ensureSeeded();
 
+  // Google validates the token (signature, expiry, project) and returns the
+  // account it belongs to. Avoids firebase-admin/auth, whose jwks-rsa/jose
+  // dependency fails to load on the Vercel Node runtime.
   let email: string | undefined;
   try {
-    email = (await adminAuth().verifyIdToken(idToken)).email?.toLowerCase();
+    const res = await fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${firebaseConfig.apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idToken }),
+        cache: "no-store",
+      },
+    );
+    if (!res.ok) throw new Error(`lookup ${res.status}`);
+    const body = (await res.json()) as {
+      users?: { email?: string; disabled?: boolean }[];
+    };
+    const account = body.users?.[0];
+    if (account && !account.disabled) email = account.email?.toLowerCase();
   } catch {
     return { error: "No pudimos verificar tu sesión. Intentá de nuevo." };
   }
