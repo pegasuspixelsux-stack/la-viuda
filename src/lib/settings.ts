@@ -8,6 +8,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   hours: "Check-in después de las 16:00. Check-out antes de las 10:00.",
   instagram: "",
   facebook: "",
+  notificationsActive: true,
   updatedAt: "",
 };
 

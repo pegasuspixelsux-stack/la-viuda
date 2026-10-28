@@ -59,8 +59,17 @@ export async function decideReservation(
   await requireAdmin();
   await reservations.update(id, {
     status: decision,
+    isRead: true,
     decidedAt: new Date().toISOString(),
   });
   revalidatePath("/admin/calendario");
   revalidatePath("/admin");
+}
+
+/** Marks every unseen reservation request as read (clears the dashboard badge). */
+export async function markReservationsRead(): Promise<void> {
+  await requireAdmin();
+  const unread = (await reservations.all()).filter((r) => r.isRead === false);
+  await Promise.all(unread.map((r) => reservations.update(r.id, { isRead: true })));
+  if (unread.length > 0) revalidatePath("/admin");
 }

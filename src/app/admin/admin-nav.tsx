@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { logout } from "@/lib/auth/actions";
+import { UnreadBadge } from "./unread-badge";
 
 const NAV = [
   { href: "/admin", label: "Panel y calendario", exact: true },
@@ -43,6 +44,7 @@ export function AdminNav({ email }: { email: string }) {
               className={linkClass(isActive(pathname, item.href, item.exact))}
             >
               {item.label}
+              {item.exact ? <UnreadBadge /> : null}
             </Link>
           ))}
           <span className="text-[0.7rem] font-normal text-black/85">
@@ -81,6 +83,7 @@ export function AdminNav({ email }: { email: string }) {
                 className={`py-2 ${linkClass(isActive(pathname, item.href, item.exact))}`}
               >
                 {item.label}
+                {item.exact ? <UnreadBadge /> : null}
               </Link>
             ))}
           </div>

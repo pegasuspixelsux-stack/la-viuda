@@ -33,6 +33,8 @@ export type Reservation = {
   guestPhone: string;
   guests: number;
   message: string;
+  /** False until the admin has seen it; missing on rows created before this field. */
+  isRead?: boolean;
   status: ReservationStatus;
   createdAt: string;
   decidedAt: string | null;
@@ -65,6 +67,8 @@ export type SiteSettings = {
   /** Handle or full URL. */
   instagram: string;
   facebook: string;
+  /** Send a WhatsApp alert to the manager on each new reservation request. */
+  notificationsActive: boolean;
   updatedAt: string;
 };
 

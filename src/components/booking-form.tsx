@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
-import { useActionState, useId, useState } from "react";
+import { useActionState, useEffect, useId, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 
 import { submitInquiry } from "@/lib/inquiry/actions";
@@ -195,6 +195,19 @@ export function BookingForm() {
             required
             inputMode="numeric"
             className={fieldClass}
+          />
+        </div>
+
+        <div className="sm:col-span-2">
+          <label htmlFor={fieldId("notas")} className={labelClass}>
+            Notas (opcional)
+          </label>
+          <textarea
+            id={fieldId("notas")}
+            name="notas"
+            rows={3}
+            maxLength={500}
+            className={fieldClass.replace("h-[3.125rem]", "py-3")}
           />
         </div>
 

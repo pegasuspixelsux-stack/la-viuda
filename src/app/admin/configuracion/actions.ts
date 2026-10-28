@@ -30,6 +30,7 @@ export async function saveSettings(
   const hours = text(formData, "hours", 300);
   const instagram = text(formData, "instagram", 200);
   const facebook = text(formData, "facebook", 200);
+  const notificationsActive = formData.get("notificationsActive") === "on";
 
   if (whatsapp && (whatsapp.length < 8 || whatsapp.length > 15)) {
     return {
@@ -49,6 +50,7 @@ export async function saveSettings(
     hours,
     instagram,
     facebook,
+    notificationsActive,
     updatedAt: new Date().toISOString(),
   };
 

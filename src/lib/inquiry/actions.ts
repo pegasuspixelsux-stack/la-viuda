@@ -36,6 +36,7 @@ export async function submitInquiry(
   const email = field(formData, "email", 160);
   const phone = field(formData, "telefono", 40);
   const guests = Math.floor(Number(field(formData, "huespedes", 3)));
+  const notes = field(formData, "notas", 500);
 
   if (!parseIso(checkIn) || !parseIso(checkOut)) {
     return { error: "Ingresá fechas válidas." };
@@ -77,7 +78,8 @@ export async function submitInquiry(
       guestEmail: email,
       guestPhone: phone,
       guests,
-      message: "",
+      message: notes,
+      isRead: false,
       status: "pending",
       createdAt: now,
       decidedAt: null,
@@ -94,14 +96,37 @@ export async function submitInquiry(
   ];
 
   await notifyWhatsApp(
-    ["Nueva solicitud de reserva — La Casa de la Viuda", ...summary].join("\n"),
+    [
+      "🔔 NUEVA SOLICITUD DE RESERVA",
+      "--------------------------------",
+      "🏨 La Casa de la Viuda",
+      "",
+      `👤 Huésped: ${name}`,
+      `📞 Teléfono: ${phone || "(sin teléfono)"}`,
+      `✉️ Email: ${email}`,
+      `📅 Entrada: ${checkIn}`,
+      `📅 Salida: ${checkOut}`,
+      `👥 Huéspedes: ${guests}`,
+      `💬 Notas: ${notes || "—"}`,
+      "",
+      "📌 Estado: Pendiente",
+      "👉 Revisa el tablero para confirmar o rechazar.",
+    ].join("\n"),
   );
 
   // Same data, pre-filled for the visitor to send from their own WhatsApp.
   const { whatsapp } = await getSettings();
-  const whatsappUrl = whatsapp
-    ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(
-        ["Hola, quisiera consultar disponibilidad en La Casa de la Viuda:", ...summary].join("\n"),
+  const number = whatsapp.replace(/\D/g, "");
+  const whatsappUrl = number
+    ? `https://wa.me/${number}?text=${encodeURIComponent(
+        [
+          "Hola, me gustaría solicitar una reserva en La Casa de la Viuda:",
+          `- Nombre: ${name}`,
+          `- Entrada: ${checkIn}`,
+          `- Salida: ${checkOut}`,
+          `- Huéspedes: ${guests}`,
+          `- Notas: ${notes || "—"}`,
+        ].join("\n"),
       )}`
     : null;
 

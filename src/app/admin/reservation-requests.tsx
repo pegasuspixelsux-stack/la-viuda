@@ -2,6 +2,7 @@ import { hasConflict } from "@/lib/db/availability";
 import { reservations, type ReservationStatus } from "@/lib/db/schema";
 import { formatRange } from "@/lib/calendar";
 import { decideReservation } from "./calendario/actions";
+import { MarkRead } from "./mark-read";
 
 const STATUS_LABEL: Record<ReservationStatus, string> = {
   pending: "Pendiente",
@@ -32,6 +33,7 @@ export async function ReservationRequests() {
 
   return (
     <section>
+      <MarkRead hasUnread={all.some((r) => r.isRead === false)} />
       <h2 className="font-serif text-2xl font-normal text-luxury-ink">
         Solicitudes de reserva
       </h2>
@@ -63,6 +65,11 @@ export async function ReservationRequests() {
                   </p>
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1">
+                  {reservation.isRead === false ? (
+                    <span className="bg-red-600 px-2 py-0.5 text-[0.58rem] font-medium uppercase tracking-[0.14em] text-white">
+                      Nueva
+                    </span>
+                  ) : null}
                   <span
                     className={`px-2 py-0.5 text-[0.58rem] font-medium uppercase tracking-[0.14em] ${STATUS_STYLE[reservation.status]}`}
                   >

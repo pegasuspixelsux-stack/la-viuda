@@ -26,6 +26,15 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
         <legend className="font-serif text-xl font-normal text-luxury-ink">
           Contacto
         </legend>
+        <label className="flex items-center gap-3 text-sm font-normal text-luxury-ink">
+          <input
+            type="checkbox"
+            name="notificationsActive"
+            defaultChecked={initial.notificationsActive}
+            className="h-4 w-4 accent-luxury-gold"
+          />
+          Avisarme por WhatsApp cuando llega una solicitud de reserva
+        </label>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="whatsapp" className={labelClass}>
