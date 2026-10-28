@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Bed, Plus } from "lucide-react";
+import { Bath, Bed, Plus } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import type { Variants } from "motion/react";
 import { useState } from "react";
@@ -11,44 +11,52 @@ import { Lightbox } from "@/components/primitives/lightbox";
 import type { LightboxItem } from "@/components/primitives/lightbox";
 import { Reveal } from "@/components/primitives/reveal";
 
-type Bedroom = { name: string; detail: string; image: string; alt: string };
+type Bedroom = {
+  name: string;
+  detail: string;
+  image: string;
+  alt: string;
+  kind?: "Habitación" | "Baño";
+};
 
 const bedrooms: Bedroom[] = [
   {
     name: "La Viuda",
-    detail: "Habitación en esquina, cama king y piso de madera.",
+    detail:
+      "Habitación en esquina, cama king, piso de madera y estufa a leña.",
     image: "/images/dormitorio-con-chimenea.webp",
     alt: "Dormitorio en esquina con piso de madera y luz natural",
   },
   {
     name: "Del Faro",
     detail:
-      "Cama queen, ambiente contiguo con cama individual y baño en suite.",
+      "Cama queen, ambiente contiguo con cama individual, baño en suite y estufa a leña compartida con Del Faro Pequeño.",
     image: "/images/dormitorio-con-vista-al-mar.webp",
     alt: "Suite luminosa con cama amplia y ropa de cama blanca",
   },
   {
     name: "Del Faro Pequeño",
-    detail: "Una cama individual, recogida y tranquila.",
+    detail:
+      "Una cama individual, recogida y tranquila. Estufa a leña compartida con Del Faro.",
     image: "/images/dormitorio-individual.webp",
     alt: "Dormitorio minimalista con cama individual y madera clara",
   },
   {
     name: "Del Viudo",
-    detail: "Habitación amplia, cama king o dos camas individuales.",
+    detail: "Habitación amplia con dos camas individuales.",
     image: "/images/dormitorio-con-dos-camas.webp",
     alt: "Habitación amplia y luminosa de estilo costero",
   },
   {
     name: "El Piloto",
     detail:
-      "Gran habitación en esquina: cama king e individual, o hasta tres individuales.",
+      "Gran habitación en esquina con hasta tres camas individuales.",
     image: "/images/dormitorio-soleado.webp",
     alt: "Habitación en esquina espaciosa con luz de dos ventanas",
   },
   {
     name: "El Capitán",
-    detail: "Una cama individual con una vista extraordinaria.",
+    detail: "Una cama individual, acogedora, con ventana al patio.",
     image: "/images/dormitorio-con-vista-al-campo.webp",
     alt: "Ambiente con grandes ventanales abiertos al paisaje",
   },
@@ -58,6 +66,21 @@ const bedrooms: Bedroom[] = [
       "Habitación luminosa con dos ventanas frente al océano y las rocas.",
     image: "/images/oceanica.webp",
     alt: "Cama de día con almohadones junto a dos ventanas con vista al océano y las rocas",
+  },
+  {
+    name: "Baño con bidé",
+    detail: "Baño completo con ducha, lavabo con pedestal e inodoro con bidé.",
+    image: "/images/bano-con-bide.webp",
+    alt: "Baño con azulejos blancos, lavabo con pedestal, ducha con cortina y bidé",
+    kind: "Baño",
+  },
+  {
+    name: "Baño con vanitory",
+    detail:
+      "Baño luminoso con vanitory de mármol, ducha y ventana al exterior.",
+    image: "/images/bano-con-vanitory.webp",
+    alt: "Baño con vanitory de mármol, espejo, ducha y ventana",
+    kind: "Baño",
   },
 ];
 
@@ -120,7 +143,7 @@ export function BedroomsSection() {
                 type="button"
                 onClick={() =>
                   setActive({
-                    kind: "Habitación",
+                    kind: room.kind ?? "Habitación",
                     title: room.name,
                     detail: room.detail,
                     image: room.image,
@@ -136,11 +159,19 @@ export function BedroomsSection() {
               </span>
 
               <div className="relative flex flex-col gap-3 p-8">
-                <Bed
-                  className="h-5 w-5 text-luxury-blue"
-                  strokeWidth={1.25}
-                  aria-hidden
-                />
+                {room.kind === "Baño" ? (
+                  <Bath
+                    className="h-5 w-5 text-luxury-blue"
+                    strokeWidth={1.25}
+                    aria-hidden
+                  />
+                ) : (
+                  <Bed
+                    className="h-5 w-5 text-luxury-blue"
+                    strokeWidth={1.25}
+                    aria-hidden
+                  />
+                )}
                 <h3 className="font-serif text-2xl font-normal text-white">
                   {room.name}
                 </h3>
