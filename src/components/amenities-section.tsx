@@ -2,23 +2,84 @@ import {
   Armchair,
   Bath,
   BedDouble,
-  Car,
-  ConciergeBell,
   Flame,
   Mountain,
   Trees,
   UtensilsCrossed,
+  WashingMachine,
   Waves,
   Wifi,
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Fragment } from "react";
 
 import { Reveal } from "@/components/primitives/reveal";
 
-type Group = { icon: LucideIcon; title: string; items: string[] };
+type Group = {
+  icon: LucideIcon;
+  title: string;
+  items: string[];
+  sub?: { icon: LucideIcon; title: string; items: string[] }[];
+};
+
+function ItemList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-3">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3">
+          <span className="mt-2 h-1 w-1 shrink-0 bg-luxury-gold" aria-hidden />
+          <span className="text-sm font-normal leading-relaxed text-black/85">
+            {item}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function GroupHeading({ icon: Icon, title }: { icon: LucideIcon; title: string }) {
+  return (
+    <div className="flex items-center gap-3">
+      <Icon
+        className="h-5 w-5 text-luxury-blue"
+        strokeWidth={1.25}
+        aria-hidden
+      />
+      <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.2em] text-luxury-gold">
+        {title}
+      </h3>
+    </div>
+  );
+}
 
 const groups: Group[] = [
+  {
+    icon: Waves,
+    title: "Ubicación",
+    items: [
+      "Frente al agua, junto al mar",
+      "Acceso privado a la playa, primera línea",
+      "Entrada privada e independiente",
+    ],
+  },
+  {
+    icon: Armchair,
+    title: "Entretenimiento y familia",
+    items: [
+      "Juegos de mesa",
+      "Libros y material de lectura",
+    ],
+  },
+  {
+    icon: Flame,
+    title: "Climatización y seguridad",
+    items: [
+      "Hogar interior: eléctrico y a leña",
+      "Estufa portátil",
+      "Botiquín de primeros auxilios",
+    ],
+  },
   {
     icon: Mountain,
     title: "Vistas",
@@ -28,15 +89,6 @@ const groups: Group[] = [
       "Vista al patio",
       "Vista al jardín",
       "Vista al océano",
-    ],
-  },
-  {
-    icon: Waves,
-    title: "Ubicación",
-    items: [
-      "Frente al agua, junto al mar",
-      "Acceso privado a la playa, primera línea",
-      "Entrada privada e independiente",
     ],
   },
   {
@@ -64,38 +116,31 @@ const groups: Group[] = [
     ],
   },
   {
-    icon: Armchair,
-    title: "Entretenimiento y familia",
-    items: [
-      "Conexión Ethernet",
-      "Libros y material de lectura",
-      "Cuna siempre disponible en la casa (estándar, 132 × 71 cm)",
-    ],
-  },
-  {
-    icon: Flame,
-    title: "Climatización y seguridad",
-    items: [
-      "Hogar interior: eléctrico, a gas y a leña",
-      "Estufa portátil",
-      "Botiquín de primeros auxilios",
-    ],
-  },
-  {
     icon: Wifi,
     title: "Internet y trabajo",
-    items: ["Wifi", "Espacio de trabajo dedicado"],
+    items: [
+      "Wifi",
+      "Espacio de trabajo dedicado",
+      "Estacionamiento gratuito en la propiedad",
+      "Estacionamiento gratuito en la calle",
+    ],
+    sub: [
+      {
+        icon: WashingMachine,
+        title: "Lavandería",
+        items: ["Servicio de lavandería disponible, no incluido en el alquiler"],
+      },
+    ],
   },
   {
     icon: UtensilsCrossed,
     title: "Cocina y comedor",
     items: [
-      "Cocina para preparar tus propias comidas",
-      "Heladera, mini heladera y freezer",
+      "Cocina para preparar tus propios alimentos",
+      "Heladeras con Freezer",
       "Básicos de cocina: ollas, sartenes, aceite, sal y pimienta",
       "Vajilla y cubiertos: platos, bowls, tazas y utensilios",
-      "Cocina a gas y horno de acero inoxidable",
-      "Cafetera de filtro",
+      "Cocina y horno de acero inoxidable",
       "Copas de vino",
       "Tostadora",
       "Bandeja para hornear",
@@ -113,17 +158,6 @@ const groups: Group[] = [
       "Comedor al aire libre",
       "Parrilla privada: a carbón y a leña",
       "Reposeras",
-    ],
-  },
-  {
-    icon: Car,
-    title: "Estacionamiento",
-    items: ["Estacionamiento gratuito en la propiedad", "Estacionamiento gratuito en la calle"],
-  },
-  {
-    icon: ConciergeBell,
-    title: "Servicios",
-    items: [
       "Se aceptan mascotas",
       "Siempre se admiten animales de asistencia",
       "Se puede dejar el equipaje antes o después de la estadía",
@@ -141,13 +175,10 @@ const capacity = [
 ];
 
 const notIncluded = [
-  "Cámaras de seguridad exteriores",
   "TV",
   "Lavarropas",
   "Secarropas",
   "Aire acondicionado",
-  "Alarma de humo (no hay en la propiedad)",
-  "Detector de monóxido de carbono (no hay en la propiedad)",
 ];
 
 export function AmenitiesSection() {
@@ -178,34 +209,19 @@ export function AmenitiesSection() {
 
         <Reveal delay={0.08}>
           <div className="mt-14 grid gap-px overflow-hidden border border-luxury-gold/15 bg-luxury-gold/15 md:grid-cols-2 lg:grid-cols-3">
-            {groups.map(({ icon: Icon, title, items }) => (
+            {groups.map(({ icon, title, items, sub }) => (
               <div
                 key={title}
                 className="flex flex-col gap-5 bg-luxury-dark p-8 md:p-10"
               >
-                <div className="flex items-center gap-3">
-                  <Icon
-                    className="h-5 w-5 text-luxury-blue"
-                    strokeWidth={1.25}
-                    aria-hidden
-                  />
-                  <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.2em] text-luxury-gold">
-                    {title}
-                  </h3>
-                </div>
-                <ul className="space-y-3">
-                  {items.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span
-                        className="mt-2 h-1 w-1 shrink-0 bg-luxury-gold"
-                        aria-hidden
-                      />
-                      <span className="text-sm font-normal leading-relaxed text-black/85">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <GroupHeading icon={icon} title={title} />
+                <ItemList items={items} />
+                {sub?.map((s) => (
+                  <Fragment key={s.title}>
+                    <GroupHeading icon={s.icon} title={s.title} />
+                    <ItemList items={s.items} />
+                  </Fragment>
+                ))}
               </div>
             ))}
           </div>
