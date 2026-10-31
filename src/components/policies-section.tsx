@@ -7,8 +7,8 @@ const blocks: Block[] = [
     id: "cancelacion",
     label: "Política de cancelación",
     items: [
-      "Reembolso total: si cancelás antes de las 16:00 de la fecha límite de reembolso total, recuperás el 100 % de lo pagado.",
-      "Reembolso parcial: si cancelás antes de las 16:00 de la fecha límite de reembolso parcial, recuperás el 50 % de cada noche menos la primera. La primera noche y la tarifa de servicio no se reembolsan.",
+      "Reembolso total: si cancelás con más de 30 días de anticipación a la fecha de ingreso, recuperás el 100 % de lo pagado.",
+      "Reembolso parcial: si cancelás hasta 15 días antes de la fecha de ingreso, recuperás el 50 %.",
       "El horario corresponde a la ubicación de la casa.",
       "Si hacés pagos programados, el reembolso o el saldo a pagar depende de lo que hayas abonado al momento de cancelar.",
     ],
@@ -19,9 +19,9 @@ const blocks: Block[] = [
     intro: "Te alojás en la casa de alguien: cuidala y respetala.",
     items: [
       "Check-in después de las 16:00. Check-out antes de las 10:00.",
-      "Máximo 11 huéspedes.",
+      "Máximo 12 huéspedes.",
       "Se aceptan mascotas.",
-      "Se permite la fotografía comercial.",
+      "No se permite la fotografía comercial.",
       "No se permiten fiestas ni eventos. No se alquila a grupos de jóvenes ni se permite el consumo de drogas.",
       "No fumar.",
       "Por la cercanía del monte, no se pueden hacer fogatas ni lanzar pirotecnia.",

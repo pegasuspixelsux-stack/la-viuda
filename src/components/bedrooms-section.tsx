@@ -49,30 +49,23 @@ const bedrooms: Bedroom[] = [
   },
   {
     name: "El Piloto",
-    detail:
-      "Gran habitación en esquina con hasta tres camas individuales.",
+    detail: "Gran habitación en esquina con una sola cama.",
     image: "/images/dormitorio-soleado.webp",
     alt: "Habitación en esquina espaciosa con luz de dos ventanas",
   },
   {
     name: "El Capitán",
-    detail: "Una cama individual, acogedora, con ventana al patio.",
+    detail:
+      "Cuarto cómodo en el centro de la casa, con ventana al jardín.",
     image: "/images/dormitorio-con-vista-al-campo.webp",
     alt: "Ambiente con grandes ventanales abiertos al paisaje",
   },
   {
     name: "La Oceánica",
     detail:
-      "Habitación luminosa con dos ventanas frente al océano y las rocas.",
+      "Habitación luminosa con dos camas y un sillón cama, y dos ventanas frente al océano y las rocas.",
     image: "/images/oceanica.webp",
     alt: "Cama de día con almohadones junto a dos ventanas con vista al océano y las rocas",
-  },
-  {
-    name: "Baño con bidé",
-    detail: "Baño completo con ducha, lavabo con pedestal e inodoro con bidé.",
-    image: "/images/bano-con-bide.webp",
-    alt: "Baño con azulejos blancos, lavabo con pedestal, ducha con cortina y bidé",
-    kind: "Baño",
   },
   {
     name: "Baño con vanitory",
@@ -109,11 +102,11 @@ export function BedroomsSection() {
             Las habitaciones
           </p>
           <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
-            Siete habitaciones, hasta once huéspedes.
+            Siete habitaciones, hasta doce huéspedes.
           </h2>
           <p className="mt-6 text-sm font-normal leading-relaxed text-black/85 md:text-base">
-            Ropa de cama de lino, almohadas antialérgicas y mantas de lana para
-            las noches frescas. Algunas de las habitaciones:
+            Mantas de lana para las noches frescas. Algunas de las
+            habitaciones:
           </p>
         </Reveal>
 

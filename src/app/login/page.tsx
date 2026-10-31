@@ -28,7 +28,7 @@ export default async function LoginPage({
     <main className="relative min-h-screen overflow-hidden">
       <Image
         src={HERO_IMAGE}
-        alt="Costa rocosa de Punta del Diablo y el horizonte del Atlántico al atardecer"
+        alt="Costa rocosa de Punta Palmar y el horizonte del Atlántico al atardecer"
         fill
         priority
         sizes="100vw"

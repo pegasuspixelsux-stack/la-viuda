@@ -20,9 +20,9 @@ const siteUrl = "https://lacasadelaviuda.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "La Casa de la Viuda | Estancia oceánica privada en Punta del Diablo",
+  title: "La Casa de la Viuda | Estancia oceánica privada en Punta Palmar",
   description:
-    "Refugio costero de alquiler exclusivo para hasta 11 huéspedes, rodeado de bosque nativo, praderas y el océano Atlántico en Punta del Diablo, Rocha.",
+    "Refugio costero de alquiler exclusivo para hasta 12 huéspedes, rodeado de bosque nativo, praderas y el océano Atlántico en Punta Palmar, Rocha.",
   openGraph: {
     type: "website",
     locale: "es_UY",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "La Casa de la Viuda",
     title: "La Casa de la Viuda | Estancia oceánica privada",
     description:
-      "Alquiler exclusivo de la casa completa. Hasta 11 huéspedes, 7 habitaciones, frente al Atlántico en Punta del Diablo.",
+      "Alquiler exclusivo de la casa completa. Hasta 12 huéspedes, 7 habitaciones, frente al Atlántico en Punta Palmar.",
   },
 };
 

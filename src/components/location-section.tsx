@@ -22,11 +22,11 @@ export async function LocationSection() {
             Ubicación
           </p>
           <h2 className="mt-4 font-serif text-4xl font-normal leading-tight text-luxury-sand md:text-5xl">
-            Ruta 9, Punta del Diablo
+            Ruta 9, Punta Palmar
           </h2>
           <p className="mt-6 max-w-md text-sm font-normal leading-relaxed text-black/85 md:text-base">
-            Punta del Diablo, departamento de Rocha. Te alojás en el lugar más
-            conocido de Punta del Diablo: Punta Palmar, fuente de leyendas y
+            Punta Palmar, departamento de Rocha. Te alojás en el lugar más
+            conocido de la zona: Punta Palmar, fuente de leyendas y
             relatos populares. La casa y su faro, visibles desde lejos, le
             dan nombre a la playa. Caminando por la orilla se llega al pueblo,
             a 2,5 km, con sus comercios y restaurantes.

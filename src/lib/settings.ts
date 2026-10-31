@@ -4,7 +4,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   id: "site",
   whatsapp: "59899156367",
   phone: "",
-  address: "Ruta 9, km 295,7 — Punta del Diablo, Rocha",
+  address: "Ruta 9, km 295,7 — Punta Palmar, Rocha",
   hours: "Check-in después de las 16:00. Check-out antes de las 10:00.",
   instagram: "",
   facebook: "",

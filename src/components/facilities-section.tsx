@@ -26,7 +26,7 @@ const facilities: Facility[] = [
     id: "naturaleza",
     icon: Trees,
     title: "Al aire libre",
-    body: "Conectate con la naturaleza: una playa virgen, sin tocar, a pasos de la casa. Dunas, rocas y mar abierto para caminar, nadar y perderse en el paisaje.",
+    body: "Conectate con la naturaleza: una playa virgen a pasos de la casa. Dunas, rocas y mar abierto para caminar, nadar y perderse en el paisaje.",
     image: "/images/caminata-por-la-playa.webp",
     alt: "Caminante solo por una playa virgen de arena abierta",
   },

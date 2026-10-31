@@ -10,7 +10,7 @@ const columns: Column[] = [
       "Península privada junto al histórico faro de Punta Palmar.",
       "Posición elevada, con vistas amplias al Atlántico y a las dunas.",
       "Espíritu de refugio costero, con el confort de una casa moderna.",
-      "Pensada para estadías largas y sin apuro en Punta del Diablo.",
+      "Pensada para estadías largas y sin apuro en Punta Palmar.",
       "Privacidad y confort reales, en pleno entorno natural.",
     ],
   },
@@ -19,7 +19,7 @@ const columns: Column[] = [
     label: "Comodidades",
     items: [
       "Vistas panorámicas al océano y a la playa.",
-      "Siete habitaciones, hasta once huéspedes.",
+      "Siete habitaciones, hasta doce huéspedes.",
       "Amplio living-comedor con chimenea a leña.",
       "Cocina equipada: dos heladeras y cocina de cuatro hornallas.",
       "Cuatro baños con juegos completos de toallas y toallones de playa.",

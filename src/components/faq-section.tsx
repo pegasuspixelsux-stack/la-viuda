@@ -12,7 +12,7 @@ type Faq = { q: string; a: string };
 const faqs: Faq[] = [
   {
     q: "¿Hay estadía mínima?",
-    a: "En temporada alta trabajamos con bloques semanales, para garantizar privacidad y un descanso sin interrupciones.",
+    a: "Sí. En temporada baja la estadía mínima es de 2 noches y en temporada alta de 3 noches.",
   },
   {
     q: "¿Se puede reservar solo una parte de la casa?",
@@ -20,11 +20,11 @@ const faqs: Faq[] = [
   },
   {
     q: "¿Cuál es la capacidad?",
-    a: "Hasta once personas, distribuidas en siete habitaciones.",
+    a: "Hasta doce personas, distribuidas en siete habitaciones.",
   },
   {
     q: "¿Cómo se llega?",
-    a: "Sobre la Ruta 9, km 295,7, dentro de una estancia oceánica privada en Punta del Diablo, Rocha. A unas tres horas y media de Montevideo.",
+    a: "Sobre la Ruta 9, km 295,7, dentro de una estancia oceánica privada en Punta Palmar, Rocha. A unas tres horas y media de Montevideo.",
   },
   {
     q: "¿Qué incluye el alquiler?",
@@ -44,7 +44,7 @@ const faqs: Faq[] = [
   },
   {
     q: "¿Hay que llevar ropa de cama o toallas?",
-    a: "No hace falta. Proveemos ropa de cama de lino, almohadas antialérgicas, mantas de lana y juegos completos de toallas, incluidos toallones de playa.",
+    a: "No hace falta. Proveemos mantas de lana y juegos completos de toallas, incluidos toallones de playa.",
   },
 ];
 

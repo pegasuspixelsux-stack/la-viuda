@@ -19,7 +19,7 @@ const tiles: Tile[] = [
   },
   {
     src: "/images/atardecer-sobre-la-bahia.webp",
-    alt: "Playa de Punta del Diablo al atardecer",
+    alt: "Playa de Punta Palmar al atardecer",
     span: "col-span-2",
   },
   {

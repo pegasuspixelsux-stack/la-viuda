@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 import { easeOut, lineReveal } from "@/components/lib/motion";
 
-// Rocky shore and Atlantic horizon at Punta del Diablo, Rocha, at sunset
+// Rocky shore and Atlantic horizon at Punta Palmar, Rocha, at sunset
 // (Unsplash, free licence). Replace with commissioned estate photography
 // before launch.
 const HERO_IMAGE =
@@ -49,7 +49,7 @@ export function Hero() {
         >
           <Image
             src={HERO_IMAGE}
-            alt="Costa rocosa de Punta del Diablo y el horizonte del Atlántico al atardecer"
+            alt="Costa rocosa de Punta Palmar y el horizonte del Atlántico al atardecer"
             fill
             priority
             sizes="100vw"
@@ -104,7 +104,7 @@ export function Hero() {
           className="mt-8 max-w-xl text-base font-normal leading-relaxed text-white/95 md:text-lg"
         >
           Una experiencia única de conexión con la naturaleza en Punta del
-          Diablo. Un refugio privado de hasta 11 huéspedes rodeado de bosques
+          Diablo. Un refugio privado de hasta 12 huéspedes rodeado de bosques
           nativos, praderas y el océano Atlántico.
         </motion.p>
 
@@ -117,7 +117,7 @@ export function Hero() {
             strokeWidth={1.5}
             aria-hidden
           />
-          Punta del Diablo, Rocha — Uruguay
+          Punta Palmar, Rocha — Uruguay
         </motion.p>
 
         <motion.div
@@ -149,7 +149,7 @@ export function Hero() {
                 Huéspedes
               </span>
               <span className="text-sm font-normal text-luxury-ink">
-                Hasta 11 personas
+                Hasta 12 personas
               </span>
             </span>
           </div>

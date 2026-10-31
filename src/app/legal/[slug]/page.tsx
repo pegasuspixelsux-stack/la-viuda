@@ -73,7 +73,7 @@ const DOCS: Record<string, LegalDoc> = {
         heading: "Reservas",
         body: [
           "El envío del formulario es una consulta de disponibilidad, no una reserva confirmada. La reserva se formaliza mediante contrato de alquiler y el pago de la seña acordada.",
-          "La casa se alquila completa, para un máximo de 11 huéspedes.",
+          "La casa se alquila completa, para un máximo de 12 huéspedes.",
         ],
       },
       {

@@ -3,7 +3,7 @@ import { Compass, Mountain, Waves } from "lucide-react";
 import { ParallaxImage } from "@/components/primitives/parallax-image";
 import { Reveal } from "@/components/primitives/reveal";
 
-// Faro de Punta Palmar, Punta del Diablo.
+// Faro de Punta Palmar, Rocha.
 const LIGHTHOUSE_IMAGE =
   "/images/el-faro-y-el-jardin.webp";
 
@@ -32,7 +32,7 @@ export function SettingSection() {
         <Reveal delay={0.08}>
           <ParallaxImage
             src={LIGHTHOUSE_IMAGE}
-            alt="El faro de Punta Palmar al atardecer, sobre la costa de Punta del Diablo"
+            alt="El faro de Punta Palmar al atardecer, sobre la costa de Punta Palmar"
           />
         </Reveal>
 

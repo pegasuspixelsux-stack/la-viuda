@@ -6,7 +6,7 @@ import { Reveal } from "@/components/primitives/reveal";
 const features = [
   {
     icon: Trees,
-    text: "Alquiler exclusivo de la casa completa — 7 habitaciones, hasta 11 personas.",
+    text: "Alquiler exclusivo de la casa completa — 7 habitaciones, hasta 12 personas.",
   },
   {
     icon: Waves,
@@ -36,12 +36,12 @@ export function EstateSection() {
             Un paraíso natural sobre la costa atlántica de Uruguay. Construida
             en la década de 1950, la casa conserva el clima de aventura y de
             refugio del mundo de sus pioneros: amplia, con ambientes
-            cómodos y acogedores, aloja hasta 11 personas en siete dormitorios
+            cómodos y acogedores, aloja hasta 12 personas en siete dormitorios
             y cuatro baños.
           </p>
           <p className="mt-4 text-sm font-normal leading-relaxed text-black/85 md:text-base">
             El living-comedor, con enormes ventanales, ofrece una vista
-            imponente al océano, las rocas y la playa. Los huéspedes tienen
+            imponente al océano, las rocas, la playa y el faro. Los huéspedes tienen
             acceso a toda la casa y a la playa de la Viuda, desde donde se
             puede caminar hasta Punta del Diablo, un pueblo de pescadores con
             sus calles, restaurantes, pescado y mejillones frescos.

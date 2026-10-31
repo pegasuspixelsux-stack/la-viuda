@@ -109,7 +109,6 @@ const groups: Group[] = [
     items: [
       "Básicos: toallas, sábanas, jabón y papel higiénico",
       "Perchas",
-      "Ropa de cama",
       "Almohadas y mantas adicionales",
       "Cortinas opacas",
       "Guardarropa: placard",
@@ -168,7 +167,7 @@ const groups: Group[] = [
 ];
 
 const capacity = [
-  { value: "11", label: "huéspedes" },
+  { value: "12", label: "huéspedes" },
   { value: "7", label: "habitaciones" },
   { value: "9", label: "camas" },
   { value: "4", label: "baños" },
