@@ -39,6 +39,7 @@ export function ParallaxImage({
       className={`relative w-full overflow-hidden border border-luxury-gold/15 ${className}`}
     >
       <motion.div
+        data-mobile-static
         className="absolute inset-x-0 -inset-y-[8%]"
         style={reduced ? undefined : { y }}
       >

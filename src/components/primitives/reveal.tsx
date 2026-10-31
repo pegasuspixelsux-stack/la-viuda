@@ -27,6 +27,7 @@ export function Reveal({ delay = 0, children, ...rest }: RevealProps) {
       variants={sectionReveal}
       initial="hidden"
       whileInView="visible"
+      data-mobile-static
       viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}
       transition={{ ...spring.gentle, delay }}
       {...rest}

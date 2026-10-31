@@ -115,12 +115,14 @@ export function ExperiencesSection() {
           initial={reduced ? undefined : "hidden"}
           whileInView={reduced ? undefined : "visible"}
           viewport={{ once: true, amount: 0.15 }}
+          data-mobile-static
           className="mt-14 grid gap-px overflow-hidden border border-luxury-gold/15 bg-luxury-gold/15 sm:grid-cols-2 lg:grid-cols-3"
         >
           {experiences.map(({ icon: Icon, title, detail, image, alt }) => (
             <motion.li
               key={title}
               variants={reduced ? undefined : card}
+              data-mobile-static
               className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden"
             >
               <Image

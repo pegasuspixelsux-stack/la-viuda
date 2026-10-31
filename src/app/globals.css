@@ -88,3 +88,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     scroll-behavior: auto !important;
   }
 }
+
+/* Mobile: only the hero animates. Scroll-driven entrances (Reveal, parallax,
+   card staggers) are forced to their final state; inline motion styles are
+   overridden here so SSR never flashes hidden content. */
+@media (max-width: 767px) {
+  [data-mobile-static] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

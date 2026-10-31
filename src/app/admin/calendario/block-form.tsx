@@ -5,7 +5,7 @@ import { useActionState, useEffect, useRef } from "react";
 import { createBlock, type BlockFormState } from "./actions";
 
 const fieldClass =
-  "w-full border border-luxury-gold/30 bg-luxury-dark px-3 py-2 text-sm font-normal text-luxury-ink " +
+  "block h-10 w-full min-w-0 max-w-full appearance-none border border-luxury-gold/30 bg-luxury-dark px-3 py-2 text-sm font-normal text-luxury-ink " +
   "focus-visible:border-luxury-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-luxury-gold";
 
 const labelClass =
@@ -24,14 +24,14 @@ export function BlockForm() {
 
   return (
     <form ref={formRef} action={formAction} className="space-y-3">
-      <div className="grid grid-cols-2 gap-3">
-        <div>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="min-w-0">
           <label htmlFor="start" className={labelClass}>
             Llegada
           </label>
           <input id="start" name="start" type="date" required className={fieldClass} />
         </div>
-        <div>
+        <div className="min-w-0">
           <label htmlFor="end" className={labelClass}>
             Salida
           </label>
