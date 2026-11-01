@@ -103,6 +103,19 @@ export async function grantAccess(formData: FormData): Promise<void> {
   revalidatePath("/admin/configuracion");
 }
 
+export async function setUserRole(formData: FormData): Promise<void> {
+  const me = await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  const role: Role = formData.get("role") === "admin" ? "admin" : "client";
+  if (!id || id === me.id) return; // can't change your own role
+
+  const target = await users.find((u) => u.id === id);
+  if (!target || target.role === role) return;
+
+  await users.update(id, { role });
+  revalidatePath("/admin/configuracion");
+}
+
 export async function removeUser(formData: FormData): Promise<void> {
   const me = await requireAdmin();
   const id = String(formData.get("id") ?? "");

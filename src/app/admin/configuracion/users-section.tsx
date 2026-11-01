@@ -7,6 +7,7 @@ import {
   createUser,
   grantAccess,
   removeUser,
+  setUserRole,
   type UserFormState,
 } from "./user-actions";
 
@@ -69,6 +70,26 @@ export function UsersSection({
                   {u.email} · {u.role === "admin" ? "Administrador" : "Cliente"}
                 </p>
               </div>
+              {u.id === currentUserId ? null : (
+                <form action={setUserRole} className="flex items-center gap-2">
+                  <input type="hidden" name="id" value={u.id} />
+                  <select
+                    name="role"
+                    defaultValue={u.role}
+                    aria-label={`Rol de ${u.name}`}
+                    className="border border-luxury-gold/30 bg-luxury-dark px-2 py-1 text-[0.75rem] text-luxury-ink"
+                  >
+                    <option value="admin">Administrador</option>
+                    <option value="client">Cliente</option>
+                  </select>
+                  <button
+                    type="submit"
+                    className="text-[0.6rem] font-medium uppercase tracking-[0.16em] text-luxury-gold hover:underline"
+                  >
+                    Cambiar
+                  </button>
+                </form>
+              )}
               {locked ? null : (
                 <form action={removeUser}>
                   <input type="hidden" name="id" value={u.id} />
