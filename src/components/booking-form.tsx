@@ -2,7 +2,7 @@
 
 import { ArrowRight, Calendar, Check } from "lucide-react";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, TouchEvent } from "react";
 
 import { openPicker, openPickerOn } from "@/lib/show-picker";
 import { submitInquiry } from "@/lib/inquiry/actions";
@@ -60,12 +60,25 @@ function DateField({
 }) {
   const [asDate, setAsDate] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const touchStartY = useRef(0);
   const showNative = asDate || value !== "";
 
   // The field switches to type="date" on focus; open the picker once it has.
   useEffect(() => {
     if (asDate) openPicker(inputRef.current);
   }, [asDate]);
+
+  // iOS Safari: taps open its autofill box instead of the calendar. Handle the
+  // tap ourselves and open the native picker directly (scroll gestures excluded).
+  const handleTouchEnd = (event: TouchEvent<HTMLInputElement>) => {
+    if (Math.abs(event.changedTouches[0].clientY - touchStartY.current) > 10) {
+      return;
+    }
+    event.preventDefault();
+    const input = event.currentTarget;
+    if (input.type === "date") openPicker(input);
+    else setAsDate(true); // the effect above opens the picker after the switch
+  };
 
   return (
     <label className="block cursor-pointer">
@@ -79,6 +92,10 @@ function DateField({
           inputMode="none"
           autoComplete="off"
           onClick={openPickerOn}
+          onTouchStart={(event) => {
+            touchStartY.current = event.touches[0].clientY;
+          }}
+          onTouchEnd={handleTouchEnd}
           required
           placeholder="dd / mm / aaaa"
           value={value}
