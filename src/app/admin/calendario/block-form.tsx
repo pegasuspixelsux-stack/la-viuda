@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useRef } from "react";
 
+import { openPickerOn } from "@/lib/show-picker";
 import { createBlock, type BlockFormState } from "./actions";
 
 const fieldClass =
@@ -29,13 +30,13 @@ export function BlockForm() {
           <label htmlFor="start" className={labelClass}>
             Llegada
           </label>
-          <input id="start" name="start" type="date" required className={fieldClass} />
+          <input id="start" name="start" type="date" inputMode="none" required onClick={openPickerOn} onFocus={openPickerOn} className={fieldClass} />
         </div>
         <div className="min-w-0">
           <label htmlFor="end" className={labelClass}>
             Salida
           </label>
-          <input id="end" name="end" type="date" required className={fieldClass} />
+          <input id="end" name="end" type="date" inputMode="none" required onClick={openPickerOn} onFocus={openPickerOn} className={fieldClass} />
         </div>
       </div>
       <div>

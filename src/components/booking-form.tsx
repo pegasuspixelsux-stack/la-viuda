@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 
+import { openPicker, openPickerOn } from "@/lib/show-picker";
 import { submitInquiry } from "@/lib/inquiry/actions";
 
 // Every field renders with this exact class so the column stays perfectly
@@ -58,7 +59,13 @@ function DateField({
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }) {
   const [asDate, setAsDate] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const showNative = asDate || value !== "";
+
+  // The field switches to type="date" on focus; open the picker once it has.
+  useEffect(() => {
+    if (asDate) openPicker(inputRef.current);
+  }, [asDate]);
 
   return (
     <div>
@@ -66,9 +73,12 @@ function DateField({
         {label}
       </label>
       <input
+        ref={inputRef}
         id={id}
         name={name}
         type={showNative ? "date" : "text"}
+        inputMode="none"
+        onClick={openPickerOn}
         required
         placeholder="dd / mm / aaaa"
         value={value}
