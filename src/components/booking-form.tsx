@@ -89,6 +89,12 @@ export function BookingForm() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [state, formAction, pending] = useActionState(submitInquiry, null);
   const sent = state !== null && "ok" in state;
+  const waUrl = state && "ok" in state ? state.whatsappUrl : null;
+
+  // Dual action: once the inquiry is stored, open the prefilled WhatsApp chat.
+  useEffect(() => {
+    if (waUrl) window.open(waUrl, "_blank", "noopener,noreferrer");
+  }, [waUrl]);
 
   const update =
     (key: FieldKey) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -113,7 +119,7 @@ export function BookingForm() {
             rel="noopener noreferrer"
             className="mt-6 inline-block bg-luxury-gold px-6 py-2.5 text-[0.6rem] font-medium uppercase tracking-[0.22em] text-white transition-colors duration-500 hover:bg-luxury-ink"
           >
-            Enviar también por WhatsApp
+            Abrir WhatsApp
           </a>
         ) : null}
         <button

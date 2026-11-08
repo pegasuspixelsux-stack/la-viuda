@@ -1,8 +1,13 @@
 import { settings, type SiteSettings } from "@/lib/db/schema";
 
+/** Digits-only default: env var first, then the built-in number. */
+const DEFAULT_WHATSAPP =
+  (process.env.NEXT_PUBLIC_DEFAULT_WA_NUMBER ?? "").replace(/\D/g, "") ||
+  "59899156367";
+
 export const DEFAULT_SETTINGS: SiteSettings = {
   id: "site",
-  whatsapp: "59899156367",
+  whatsapp: DEFAULT_WHATSAPP,
   phone: "",
   address: "Ruta 9, km 295,7 — Punta Palmar, Rocha",
   hours: "Check-in después de las 16:00. Check-out antes de las 10:00.",
@@ -16,7 +21,10 @@ export const DEFAULT_SETTINGS: SiteSettings = {
 export async function getSettings(): Promise<SiteSettings> {
   try {
     const saved = await settings.find((row) => row.id === "site");
-    return { ...DEFAULT_SETTINGS, ...saved };
+    const merged = { ...DEFAULT_SETTINGS, ...saved };
+    // A cleared number in the admin falls back to the default.
+    if (!merged.whatsapp) merged.whatsapp = DEFAULT_SETTINGS.whatsapp;
+    return merged;
   } catch (error) {
     console.error("[settings] read failed, using defaults", error);
     return DEFAULT_SETTINGS;
