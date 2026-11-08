@@ -68,10 +68,8 @@ function DateField({
   }, [asDate]);
 
   return (
-    <div>
-      <label htmlFor={id} className={labelClass}>
-        {label}
-      </label>
+    <label className="block cursor-pointer">
+      <span className={labelClass}>{label}</span>
       <div className="relative">
         <input
           ref={inputRef}
@@ -79,6 +77,7 @@ function DateField({
           name={name}
           type={showNative ? "date" : "text"}
           inputMode="none"
+          autoComplete="off"
           onClick={openPickerOn}
           required
           placeholder="dd / mm / aaaa"
@@ -90,24 +89,15 @@ function DateField({
           }}
           className={`${fieldClass} cursor-pointer pr-11 [&::-webkit-calendar-picker-indicator]:hidden`}
         />
-        {/* One calendar icon in both states; on touch screens taps reach the input. */}
-        <button
-          type="button"
-          tabIndex={-1}
-          aria-label="Abrir calendario"
-          onMouseDown={(event) => event.preventDefault()}
-          onClick={() => {
-            const input = inputRef.current;
-            if (!input) return;
-            input.focus();
-            openPicker(input);
-          }}
-          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-luxury-gold/70 hover:text-luxury-gold sm:pointer-events-auto"
+        {/* Taps pass through the icon to the input inside the wrapping label. */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-luxury-gold/70"
         >
           <Calendar className="h-4 w-4" strokeWidth={1.5} />
-        </button>
+        </span>
       </div>
-    </div>
+    </label>
   );
 }
 
