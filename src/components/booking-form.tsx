@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Calendar, Check } from "lucide-react";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 
@@ -72,23 +72,41 @@ function DateField({
       <label htmlFor={id} className={labelClass}>
         {label}
       </label>
-      <input
-        ref={inputRef}
-        id={id}
-        name={name}
-        type={showNative ? "date" : "text"}
-        inputMode="none"
-        onClick={openPickerOn}
-        required
-        placeholder="dd / mm / aaaa"
-        value={value}
-        onChange={onChange}
-        onFocus={() => setAsDate(true)}
-        onBlur={() => {
-          if (value === "") setAsDate(false);
-        }}
-        className={fieldClass}
-      />
+      <div className="relative">
+        <input
+          ref={inputRef}
+          id={id}
+          name={name}
+          type={showNative ? "date" : "text"}
+          inputMode="none"
+          onClick={openPickerOn}
+          required
+          placeholder="dd / mm / aaaa"
+          value={value}
+          onChange={onChange}
+          onFocus={() => setAsDate(true)}
+          onBlur={() => {
+            if (value === "") setAsDate(false);
+          }}
+          className={`${fieldClass} cursor-pointer pr-11 [&::-webkit-calendar-picker-indicator]:hidden`}
+        />
+        {/* One calendar icon in both states; on touch screens taps reach the input. */}
+        <button
+          type="button"
+          tabIndex={-1}
+          aria-label="Abrir calendario"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => {
+            const input = inputRef.current;
+            if (!input) return;
+            input.focus();
+            openPicker(input);
+          }}
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-luxury-gold/70 hover:text-luxury-gold sm:pointer-events-auto"
+        >
+          <Calendar className="h-4 w-4" strokeWidth={1.5} />
+        </button>
+      </div>
     </div>
   );
 }
