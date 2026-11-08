@@ -1,10 +1,10 @@
 "use client";
 
 import { ArrowRight, Calendar, Check } from "lucide-react";
-import { useActionState, useEffect, useId, useRef, useState } from "react";
-import type { ChangeEvent, TouchEvent } from "react";
+import { useActionState, useEffect, useId, useState } from "react";
+import type { ChangeEvent } from "react";
 
-import { openPicker, openPickerOn } from "@/lib/show-picker";
+import { openPickerOn } from "@/lib/show-picker";
 import { submitInquiry } from "@/lib/inquiry/actions";
 
 // Every field renders with this exact class so the column stays perfectly
@@ -42,9 +42,7 @@ const TEXT_FIELDS: {
   { key: "telefono", label: "Teléfono", type: "tel", autoComplete: "tel", required: false },
 ];
 
-// Date field that looks exactly like the text inputs when empty (styled
-// placeholder, no native "mm/dd/yyyy"), and only shows the native date UI
-// once it is focused or filled.
+// Native date input: tapping it opens the system calendar on every device.
 function DateField({
   id,
   name,
@@ -58,55 +56,21 @@ function DateField({
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }) {
-  const [asDate, setAsDate] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const touchStartY = useRef(0);
-  const showNative = asDate || value !== "";
-
-  // The field switches to type="date" on focus; open the picker once it has.
-  useEffect(() => {
-    if (asDate) openPicker(inputRef.current);
-  }, [asDate]);
-
-  // iOS Safari: taps open its autofill box instead of the calendar. Handle the
-  // tap ourselves and open the native picker directly (scroll gestures excluded).
-  const handleTouchEnd = (event: TouchEvent<HTMLInputElement>) => {
-    if (Math.abs(event.changedTouches[0].clientY - touchStartY.current) > 10) {
-      return;
-    }
-    event.preventDefault();
-    const input = event.currentTarget;
-    if (input.type === "date") openPicker(input);
-    else setAsDate(true); // the effect above opens the picker after the switch
-  };
-
   return (
     <label className="block cursor-pointer">
       <span className={labelClass}>{label}</span>
       <div className="relative">
         <input
-          ref={inputRef}
           id={id}
           name={name}
-          type={showNative ? "date" : "text"}
-          inputMode="none"
+          type="date"
           autoComplete="off"
-          onClick={openPickerOn}
-          onTouchStart={(event) => {
-            touchStartY.current = event.touches[0].clientY;
-          }}
-          onTouchEnd={handleTouchEnd}
           required
-          placeholder="dd / mm / aaaa"
           value={value}
           onChange={onChange}
-          onFocus={() => setAsDate(true)}
-          onBlur={() => {
-            if (value === "") setAsDate(false);
-          }}
-          className={`${fieldClass} cursor-pointer pr-11 [&::-webkit-calendar-picker-indicator]:hidden`}
+          onClick={openPickerOn}
+          className={`${fieldClass} cursor-pointer pr-11 [&::-webkit-calendar-picker-indicator]:opacity-0`}
         />
-        {/* Taps pass through the icon to the input inside the wrapping label. */}
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-luxury-gold/70"
